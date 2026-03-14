@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "agri-world-shi",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
