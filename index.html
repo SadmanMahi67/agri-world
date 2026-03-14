@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri World | Premium Farm-to-Table Marketplace</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav id="navbar">
+            <div class="logo" onclick="showSection('home')">Agri<span>World</span></div>
+            <div class="nav-links">
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('listing')">Products</a>
+                <a href="#" onclick="showSection('about')">Our Story</a>
+                <a href="#" onclick="showSection('checkout')">Checkout</a>
+            </div>
+            <div class="nav-actions">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <button class="cart-btn" id="openCart">
+                    <i class="fa-solid fa-shopping-basket"></i> Cart (0)
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="mainView">
+            
+            <!-- Home View (Landing Page) -->
+            <section id="homeView" class="fade-in">
+                <div class="hero">
+                    <div class="hero-content">
+                        <span class="hero-badge">🌿 100% Organic & Fresh</span>
+                        <h1>Freshly Harvested <span>Agri World</span></h1>
+                        <p>Experience the finest agricultural products delivered directly from our network of verified regional farmers across Bangladesh.</p>
+                        <div class="hero-btns">
+                            <button class="cta-primary" onclick="showSection('listing')">Shop now</button>
+                            <button class="cta-secondary" onclick="showSection('about')">Explore Farmers</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-num">500+</span>
+                        <span class="stat-label">Farmers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">20+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">Express</span>
+                        <span class="stat-label">Same Day Delivery</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">10k+</span>
+                        <span class="stat-label">Customers</span>
+                    </div>
+                </div>
+
+                <div class="section-container reveal">
+                    <h2 class="section-title">Explore Categories</h2>
+                    <p class="section-subtitle">Hand-picked selections from local farms</p>
+                    <div class="cat-grid" id="homeCategories">
+                        <!-- Categories injected via JS -->
+                    </div>
+                </div>
+
+                <div class="section-container reveal">
+                    <h2 class="section-title">TOP SELECTIONS</h2>
+                    <p class="section-subtitle">Premium quality products curated for you</p>
+                    <div id="topSelectionsGrid" class="product-grid">
+                        <!-- Injected top picks -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Listing View (Marketplace) -->
+            <section id="listingView" class="hidden">
+                <div class="listing-layout">
+                    <aside class="listing-sidebar">
+                        <h3>Filters</h3>
+                        
+                        <div class="filter-group">
+                            <label>Quick Search</label>
+                            <input type="text" id="searchInput" placeholder="Search for items..." oninput="applyFilters()">
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Categories</h4>
+                            <div id="categoryFilters" class="pill-filters">
+                                <!-- Pill buttons -->
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Region</h4>
+                            <div id="regionFilters" class="pill-filters">
+                                <!-- Pill buttons -->
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <input type="range" id="priceRange" min="0" max="2500" value="2500" oninput="updatePriceLabel(this.value)">
+                            <div id="priceLabel" style="margin-top: 10px; color: var(--accent); font-weight: 600;">Up to ৳ 2500</div>
+                        </div>
+
+                        <button class="cta-secondary" style="width: 100%; padding: 10px;" onclick="clearFilters()">Clear All Filters</button>
+                    </aside>
+
+                    <div class="listing-main">
+                        <div class="listing-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                            <h2 id="viewTitle" class="section-title" style="margin: 0; font-size: 2rem;">All Products</h2>
+                            <div class="sort-group" style="display: flex; align-items: center; gap: 15px;">
+                                <label style="color: var(--text-muted);">Sort by:</label>
+                                <select id="sortSelect" onchange="applyFilters()" style="width: 200px; padding: 10px;">
+                                    <option value="newest">Newest Arrivals</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div id="productGrid" class="product-grid">
+                            <!-- Products will be injected here -->
+                        </div>
+
+                        <div id="supplierView" class="hidden">
+                            <button onclick="closeSupplierView()" style="background:none; border:none; color:var(--accent); cursor:pointer; margin-bottom: 20px; font-weight: 700;">
+                                <i class="fa-solid fa-arrow-left"></i> Back to products
+                            </button>
+                            <h2 id="productDetailTitle" style="margin-bottom: 20px; font-size: 2.5rem;">Suppliers</h2>
+                            <div id="supplierList" class="supplier-list">
+                                <!-- Suppliers will be injected here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About View -->
+            <section id="aboutView" class="hidden fade-in">
+                <div class="checkout-card" style="margin-top: 50px;">
+                    <h1 class="section-title">Our Roots</h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">Agri World is dedicated to bridging the gap between local farmers across Bangladesh and consumers who value quality, transparency, and freshness.</p>
+                    <p style="color: var(--text-muted);">Our mission is to empower farmers by providing direct access to the market while ensuring our customers receive the best produce from regions like Sylhet, Rajshahi, Bogura, and beyond. We believe in sustainable agriculture and fair trade for every grower in our network.</p>
+                </div>
+            </section>
+
+            <!-- Checkout View -->
+            <section id="checkoutView" class="hidden fade-in">
+                <div class="checkout-container">
+                    <div class="stepper">
+                        <div class="step active"><div class="step-num">1</div> Cart</div>
+                        <div class="step active"><div class="step-num">2</div> Details</div>
+                        <div class="step"><div class="step-num">3</div> Success</div>
+                    </div>
+                    
+                    <div class="checkout-grid">
+                        <div class="checkout-card">
+                            <h2 style="margin-bottom: 30px;">Shipping Details</h2>
+                            <form id="checkoutForm">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="custName" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" id="custPhone" placeholder="017XXXXXXXX" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery Address</label>
+                                    <textarea id="custAddress" rows="4" placeholder="House no, Road name, Area" required></textarea>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--accent); margin-bottom: 30px;">
+                                    <i class="fa-solid fa-truck-fast"></i> Estimated delivery: 2-4 hours
+                                </p>
+                                <button type="submit" class="shimmer-btn">Confirm & Place Order</button>
+                            </form>
+                        </div>
+                        
+                        <div class="checkout-card">
+                            <h3 style="margin-bottom: 20px; font-family: 'Playfair Display';">Order Summary</h3>
+                            <div id="checkoutSummaryItems" style="margin-bottom: 20px;">
+                                <!-- Summary items with thumbnails via JS -->
+                            </div>
+                            <div style="border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span>Subtotal</span>
+                                    <span id="summarySubtotal">৳ 0</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--accent);">
+                                    <span>Bulk Discount</span>
+                                    <span id="summaryDiscount">-৳ 0</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.4rem; margin-top: 20px;">
+                                    <span>Total</span>
+                                    <span id="checkoutFinalTotal">৳ 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Cart Drawer -->
+        <div id="cartDrawer" class="cart-overlay">
+            <div class="cart-header">
+                <h2>Your Basket</h2>
+                <span class="close-cart" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items -->
+            </div>
+            <div class="cart-footer" style="padding-top: 30px; border-top: 1px solid var(--glass-border);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal" style="font-weight: 600;">৳ 0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px; color: var(--accent);">
+                    <span>Bulk Discount</span>
+                    <span id="cartDiscount">৳ 0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.5rem; margin-bottom: 30px;">
+                    <span>Total</span>
+                    <span id="cartTotal">৳ 0</span>
+                </div>
+                <button class="shimmer-btn" onclick="showSection('checkout'); document.getElementById('cartDrawer').classList.remove('open');">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">Agri<span>World</span></div>
+                    <p style="color: var(--text-muted); margin-top: 20px; max-width: 300px;">Directly connecting you to the heart of Bangladeshi agriculture. Fresh, organic, and fair.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" onclick="showSection('listing')">Products</a></li>
+                        <li><a href="#" onclick="showSection('about')">Our Story</a></li>
+                        <li><a href="#" onclick="showSection('checkout')">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Get updates on fresh arrivals and farm stories.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Email Address">
+                        <button><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ for Bangladeshi Farmers | &copy; 2026 Agri World</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

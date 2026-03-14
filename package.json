@@ -1,0 +1,13 @@
+{
+  "name": "agri-world-shi",
+  "version": "1.0.0",
+  "description": "Premium Farm-to-Table Marketplace",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "latest"
+  }
+}
