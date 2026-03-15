@@ -1,108 +1,186 @@
+const divisions = ['Dhaka', 'Chattogram', 'Rajshahi', 'Khulna', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'];
+
 // Product Data Structure
 const products = [
-    { id: 'v1', name: 'Cabbage', category: 'Vegetables', description: 'Fresh crisp green cabbage.', rating: 4.8, image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400', suppliers: [
-        {id: 's1', name: 'Sylhet Valley', region: 'Sylhet', price: 45}, 
-        {id: 's2', name: 'Rajshahi Green', region: 'Rajshahi', price: 40},
-        {id: 's3', name: 'Dhaka Agro', region: 'Dhaka', price: 48}
-    ] },
-    { id: 'v2', name: 'Potatoes', category: 'Vegetables', description: 'Premium quality diamond potatoes.', rating: 4.5, image: 'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400', suppliers: [
-        {id: 's4', name: 'Bogura Red', region: 'Bogura', price: 35},
-        {id: 's5', name: 'Munshiganj Farms', region: 'Dhaka', price: 38}
-    ] },
-    { id: 'v3', name: 'Carrots', category: 'Vegetables', description: 'Sweet orange organic carrots.', rating: 4.7, image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400', suppliers: [
-        {id: 's9', name: 'Dhaka Fresh', region: 'Dhaka', price: 60},
-        {id: 's10', name: 'Cumilla Green', region: 'Comilla', price: 55}
-    ] },
-    { id: 'v4', name: 'Tomatoes', category: 'Vegetables', description: 'Vine-ripened red tomatoes.', rating: 4.6, image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400', suppliers: [
-        {id: 's11', name: 'Comilla Farms', region: 'Comilla', price: 80},
-        {id: 's12', name: 'Rajshahi Red', region: 'Rajshahi', price: 75}
-    ] },
-    { id: 'v5', name: 'Spinach', category: 'Vegetables', description: 'Fresh nutritional spinach leaves.', rating: 4.9, image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400', suppliers: [
-        {id: 's13', name: 'Sylhet Valley', region: 'Sylhet', price: 30},
-        {id: 's14', name: 'Barishal Greens', region: 'Barishal', price: 32}
-    ] },
-    { id: 'v6', name: 'Brinjal', category: 'Vegetables', description: 'Large purple eggplants.', rating: 4.5, image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', suppliers: [
-        {id: 's30', name: 'Jashore Farms', region: 'Jashore', price: 65},
-        {id: 's31', name: 'Dhaka Veggies', region: 'Dhaka', price: 70}
-    ] },
+    { id: 'v1', name: 'Cabbage', category: 'Vegetables', description: 'Fresh crisp green cabbage.', rating: 4.8, image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div })) },
+    { id: 'v2', name: 'Potatoes', category: 'Vegetables', description: 'Premium quality diamond potatoes.', rating: 4.5, image: 'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400', unit: 'kg', marketPrice: 25, suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div })) },
+    { id: 'v3', name: 'Carrots', category: 'Vegetables', description: 'Sweet orange organic carrots.', rating: 4.7, image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div })) },
+    { id: 'v4', name: 'Tomatoes', category: 'Vegetables', description: 'Vine-ripened red tomatoes.', rating: 4.6, image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400', unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div })) },
+    { id: 'v5', name: 'Spinach', category: 'Vegetables', description: 'Fresh nutritional spinach leaves.', rating: 4.9, image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400', unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div })) },
+    { id: 'v6', name: 'Brinjal', category: 'Vegetables', description: 'Large purple eggplants.', rating: 4.5, image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div })) },
     
-    { id: 'f1', name: 'Apples', category: 'Fruit', description: 'Crisp and sweet gala apples.', rating: 4.8, image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400', suppliers: [
-        {id: 's15', name: 'Sylhet Valley', region: 'Sylhet', price: 180},
-        {id: 's16', name: 'Chittagong Orchards', region: 'Chittagong', price: 195}
-    ] },
-    { id: 'f2', name: 'Banana', category: 'Fruit', description: 'Sweet tropical organic bananas.', rating: 4.4, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', suppliers: [
-        {id: 's17', name: 'Barishal Tropicals', region: 'Barishal', price: 60},
-        {id: 's18', name: 'Narsingdi Golden', region: 'Narsingdi', price: 55}
-    ] },
-    { id: 'f3', name: 'Mango', category: 'Fruit', description: 'Famous Rajshahi langra mangoes.', rating: 5.0, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', suppliers: [
-        {id: 's19', name: 'Chapainawabganj', region: 'Rajshahi', price: 120},
-        {id: 's20', name: 'Satkhira Premium', region: 'Satkhira', price: 130}
-    ] },
-    { id: 'f4', name: 'Guava', category: 'Fruit', description: 'Crispy green sweet guavas.', rating: 4.7, image: 'https://images.unsplash.com/photo-1536510233921-8e5043fce771?w=400', suppliers: [
-        {id: 's32', name: 'Barishal Fruits', region: 'Barishal', price: 50},
-        {id: 's33', name: 'Rajshahi Orchard', region: 'Rajshahi', price: 55}
-    ] },
+    { id: 'f1', name: 'Apples', category: 'Fruit', description: 'Crisp and sweet gala apples.', rating: 4.8, image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400', unit: 'kg', marketPrice: 280, suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div })) },
+    { id: 'f2', name: 'Banana', category: 'Fruit', description: 'Sweet tropical organic bananas.', rating: 4.4, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', unit: 'kg', marketPrice: 60, suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div })) },
+    { id: 'f3', name: 'Mango', category: 'Fruit', description: 'Famous Rajshahi langra mangoes.', rating: 5.0, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', unit: 'kg', marketPrice: 125, suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div })) },
     
-    { id: 'm1', name: 'Milk', category: 'Milk', description: 'Pure farm-fresh cow milk.', rating: 4.9, image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400', suppliers: [
-        {id: 's21', name: 'Pabna Dairy', region: 'Pabna', price: 90},
-        {id: 's22', name: 'Sirajganj Fresh', region: 'Sirajganj', price: 85}
-    ] },
-    { id: 'd1', name: 'Yogurt', category: 'Dairy Products', description: 'Traditional Bogura sweet curd.', rating: 4.9, image: 'https://images.unsplash.com/photo-1485962391044-f93878b1732e?auto=format&fit=crop&q=80&w=800', suppliers: [
-        {id: 's23', name: 'Bogura Palace', region: 'Bogura', price: 150},
-        {id: 's24', name: 'Sherpur Curds', region: 'Bogura', price: 140}
-    ] },
-    { id: 'd2', name: 'Ghee', category: 'Dairy Products', description: 'Pure desi cow ghee.', rating: 4.9, image: 'https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400', suppliers: [
-        {id: 's34', name: 'Pabna Gold', region: 'Pabna', price: 1200},
-        {id: 's35', name: 'Village Pure', region: 'Dhaka', price: 1350}
-    ] },
+    { id: 'm1', name: 'Milk', category: 'Dairy', description: 'Pure farm-fresh cow milk.', rating: 4.9, image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400', unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div })) },
     
-    { id: 'c1', name: 'Rice', category: 'Crops', description: 'Aromatic long-grain miniket rice.', rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400', suppliers: [
-        {id: 's25', name: 'Naogaon Mill', region: 'Naogaon', price: 70},
-        {id: 's26', name: 'Dinajpur Grains', region: 'Dinajpur', price: 75}
-    ] },
-    { id: 'c2', name: 'Lentils', category: 'Crops', description: 'High protein red lentils (Dal).', rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400', suppliers: [
-        {id: 's27', name: 'Kushtia Grains', region: 'Kushtia', price: 110},
-        {id: 's28', name: 'Magura Pulse', region: 'Kushtia', price: 105}
-    ] },
+    { id: 'p1', name: 'Eggs', category: 'Poultry', description: 'Farm fresh organic eggs.', rating: 4.8, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div })) },
     
-    { id: 'fi1', name: 'Hilsa Fish', category: 'Fish', description: 'Padma Hilsa - The King of Fish.', rating: 5.0, image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400', suppliers: [
-        {id: 's29', name: 'Chandpur Fresh', region: 'Chandpur', price: 1800},
-        {id: 's30', name: 'Bhola Fishery', region: 'Bhola', price: 1750}
-    ] },
-    { id: 'fi2', name: 'Prawns', category: 'Fish', description: 'Freshwater giant prawns.', rating: 4.8, image: 'https://images.unsplash.com/photo-1553659971-f01207815844?w=400', suppliers: [
-        {id: 's36', name: 'Satkhira Export', region: 'Satkhira', price: 950},
-        {id: 's37', name: 'Khulna Aqua', region: 'Khulna', price: 900}
-    ] },
-
-    { id: 'sp1', name: 'Honey', category: 'Spices', description: 'Pure Sundarbans honey.', rating: 4.9, image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400', suppliers: [
-        {id: 's38', name: 'Sundarbans Wild', region: 'Khulna', price: 850},
-        {id: 's39', name: 'Natural Bee', region: 'Dhaka', price: 900}
-    ] }
+    { id: 'c1', name: 'Rice', category: 'Crops', description: 'Aromatic long-grain miniket rice.', rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div })) },
+    { id: 'c2', name: 'Lentils', category: 'Crops', description: 'High protein red lentils (Dal).', rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400', unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div })) },
+    
+    { id: 'fi1', name: 'Hilsa Fish', category: 'Fish', description: 'Padma Hilsa - The King of Fish.', rating: 5.0, image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400', unit: 'kg', marketPrice: 1800, suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div })) },
+    { id: 'fi2', name: 'Prawns', category: 'Fish', description: 'Freshwater giant prawns.', rating: 4.8, image: 'https://images.unsplash.com/photo-1553659971-f01207815844?w=400', unit: 'kg', marketPrice: 950, suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div })) }
 ];
 
 const categoryData = [
     { name: 'Vegetables', icon: '🥦', count: 120, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=400' },
     { name: 'Fruit', icon: '🍎', count: 85, image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400' },
-    { name: 'Milk', icon: '🥛', count: 40, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=400' },
-    { name: 'Dairy Products', icon: '🧀', count: 35, image: 'https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400' },
+    { name: 'Dairy', icon: '🥛', count: 40, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=400' },
+    { name: 'Poultry', icon: '🥚', count: 35, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400' },
     { name: 'Crops', icon: '🌾', count: 60, image: 'https://images.unsplash.com/photo-1500313830540-7b6650a74fd0?w=400' },
     { name: 'Fish', icon: '🐟', count: 25, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=400' }
 ];
+
+// Localization
+const translations = {
+    en: {
+        brand: 'Agri<span>BD</span>',
+        navHome: 'Home',
+        navProducts: 'Products',
+        navAbout: 'About Us',
+        navCheckout: 'Checkout',
+        heroTitle: 'Freshly Harvested <span>AgriBD</span>',
+        heroSubtitle: 'Experience the finest agricultural products delivered directly from our network of verified regional farmers across Bangladesh.',
+        shopNow: 'Shop now',
+        exploreFarmers: 'Explore Farmers',
+        farmers: 'Farmers',
+        categories: 'Categories',
+        delivery: 'Express Delivery',
+        customers: 'Customers',
+        exploreCategories: 'Explore Categories',
+        handPicked: 'Hand-picked selections from local farms',
+        topSelections: 'TOP SELECTIONS',
+        premiumQuality: 'Premium quality products curated for you',
+        filters: 'Filters',
+        searchPlaceholder: 'Search for items...',
+        priceRange: 'Price Range',
+        upTo: 'Up to',
+        clearFilters: 'Clear All Filters',
+        sortBy: 'Sort by',
+        newest: 'Newest Arrivals',
+        priceLow: 'Price: Low to High',
+        priceHigh: 'Price: High to Low',
+        backToProducts: 'Back to products',
+        suppliersFor: 'Suppliers for',
+        addToCart: 'Add to Cart',
+        yourBasket: 'Your Basket',
+        subtotal: 'Subtotal',
+        bulkDiscount: 'Bulk Discount',
+        total: 'Total',
+        proceedToCheckout: 'Proceed to Checkout',
+        shippingDetails: 'Shipping Details',
+        fullName: 'Full Name',
+        phone: 'Phone Number',
+        address: 'Delivery Address',
+        confirmOrder: 'Confirm & Place Order',
+        orderSummary: 'Order Summary',
+        orderConfirmed: 'Order Confirmed!',
+        thankYou: 'Thank you',
+        estimatedDelivery: 'Estimated delivery: 2-4 hours',
+        gradeA: 'Grade A (Premium)',
+        gradeB: 'Grade B (Market Price)',
+        location: 'Location',
+        collectionHub: 'Collect from Hub',
+        homeDelivery: 'Home Delivery',
+        chooseDivision: 'Choose Division',
+        chooseHub: 'Choose Hub',
+        aboutHeadline: 'Rooted in Bangladesh',
+        aboutLead: 'AgriBD is dedicated to bridging the gap between local farmers across Bangladesh and consumers who value quality, transparency, and freshness.',
+        aboutBody: 'Our mission is to empower farmers by providing direct access to the market while ensuring our customers receive the best produce from all 8 divisions. Grade A products are premium, carefully selected for size and quality. Grade B products are unshaped but equally fresh market-price goods.',
+        divisionContacts: 'Division Hub Contacts',
+    },
+    bn: {
+        brand: 'এগ্রি<span>বিডি</span>',
+        navHome: 'হোম',
+        navProducts: 'পণ্যসমূহ',
+        navAbout: 'আমাদের সম্পর্কে',
+        navCheckout: 'চেকআউট',
+        heroTitle: 'সদ্য আহরিত <span>এগ্রিবিডি</span>',
+        heroSubtitle: 'বাংলাদেশের সকল বিভাগীয় কৃষকদের থেকে সরাসরি তাজা পণ্য আপনার কাছে পৌঁছে দিচ্ছি।',
+        shopNow: 'এখনই কিনুন',
+        exploreFarmers: 'কৃষকদের দেখুন',
+        farmers: 'কৃষক',
+        categories: 'ক্যাটাগরি',
+        delivery: 'দ্রুত ডেলিভারি',
+        customers: 'ক্রেতা',
+        exploreCategories: 'ক্যাটাগরিগুলো দেখুন',
+        handPicked: 'স্থানীয় খামার থেকে সরাসরি বাছাইকৃত',
+        topSelections: 'সেরা পছন্দগুলো',
+        premiumQuality: 'আপনার জন্য সেরা মানের পণ্য',
+        filters: 'ফিল্টার',
+        searchPlaceholder: 'খুঁজুন...',
+        priceRange: 'দামের পরিসীমা',
+        upTo: 'সর্বোচ্চ',
+        clearFilters: 'সব ফিল্টার মুছুন',
+        sortBy: 'ক্রমানুসার:',
+        newest: 'নতুন পণ্য',
+        priceLow: 'দাম: কম থেকে বেশি',
+        priceHigh: 'দাম: বেশি থেকে কম',
+        backToProducts: 'পণ্যতালিকায় ফিরুন',
+        suppliersFor: 'এর সরবরাহকারী',
+        addToCart: 'কার্টে যোগ করুন',
+        yourBasket: 'আপনার ঝুড়ি',
+        subtotal: 'সাবটোটাল',
+        bulkDiscount: 'পাইকারি ছাড়',
+        total: 'মোট',
+        proceedToCheckout: 'চেকআউট করুন',
+        shippingDetails: 'শিপিং তথ্য',
+        fullName: 'পুরো নাম',
+        phone: 'ফোন নম্বর',
+        address: 'ডেলিভারি ঠিকানা',
+        confirmOrder: 'অর্ডার নিশ্চিত করুন',
+        orderSummary: 'অর্ডার সামারি',
+        orderConfirmed: 'অর্ডার সফল হয়েছে!',
+        thankYou: 'ধন্যবাদ',
+        estimatedDelivery: 'সম্ভাব্য ডেলিভারি: ২-৪ ঘণ্টা',
+        gradeA: 'গ্রেড এ (প্রিমিয়াম)',
+        gradeB: 'গ্রেড বি (বাজার দর)',
+        location: 'অবস্থান',
+        collectionHub: 'হাব থেকে সংগ্রহ',
+        homeDelivery: 'হোম ডেলিভারি',
+        chooseDivision: 'বিভাগ নির্বাচন করুন',
+        chooseHub: 'হাব নির্বাচন করুন',
+        aboutHeadline: 'বাংলাদেশের মাটির সাথে',
+        aboutLead: 'এগ্রিবিডি বাংলাদেশের স্থানীয় কৃষক এবং মানসম্পন্ন পণ্যের সন্ধানকারী ক্রেতাদের মধ্যে সেতুবন্ধন তৈরিতে কাজ করে।',
+        aboutBody: 'আমাদের লক্ষ্য হলো কৃষকদের সরাসরি বাজারে প্রবেশের সুযোগ করে দেওয়া এবং ক্রেতাদের ৮টি বিভাগ থেকে সেরা পণ্য নিশ্চিত করা। গ্রেড এ পণ্যগুলো প্রিমিয়াম মানের। গ্রেড বি পণ্যগুলো দেখতে কিছুটা ভিন্ন হলেও তাজা এবং বাজার মূল্যে পাওয়া যায়।',
+        divisionContacts: 'বিভাগীয় হাব যোগাযোগ',
+    }
+};
+
+let currentLang = 'bn';
+
+// Hub Data
+const hubData = {
+    'Dhaka': ['Dhaka Central Hub', 'Mirpur Hub'],
+    'Chattogram': ['Chattogram Port Hub', 'Agrabad Hub'],
+    'Rajshahi': ['Rajshahi Town Hub', 'Chapainawabganj Hub'],
+    'Khulna': ['Khulna City Hub', 'Jessore Hub'],
+    'Barishal': ['Barishal Sadar Hub', 'Bhola Hub'],
+    'Sylhet': ['Sylhet City Hub', 'Moulvibazar Hub'],
+    'Rangpur': ['Rangpur Town Hub', 'Dinajpur Hub'],
+    'Mymensingh': ['Mymensingh Hub', 'Netrokona Hub']
+};
 
 // UI State
 let cart = [];
 let currentSection = 'home';
 let filters = { search: '', categories: [], regions: [], maxPrice: 2500, sort: 'newest' };
+let currentGrade = 'A';
+let currentProduct = null;
 let revealObserver;
 
 // Initialize
 function init() {
     setupScrollEffects();
+    updateLanguage();
     renderHome();
     setupFilters();
     showSection('home');
     setupEventListeners();
     updateCartUI();
+    populateDivisions();
 }
 
 function setupScrollEffects() {
@@ -116,14 +194,36 @@ function setupScrollEffects() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Once it's active, we can stop observing
                 revealObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
     
-    // Initial observation
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'bn' : 'en';
+    document.getElementById('langDisplay').innerText = currentLang === 'en' ? 'BN' : 'EN';
+    updateLanguage();
+    renderHome();
+    setupFilters();
+    applyFilters();
+}
+
+function updateLanguage() {
+    const t = translations[currentLang];
+    document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (t[key]) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('[data-p]').forEach(el => {
+        const key = el.getAttribute('data-p');
+        if (t[key]) el.placeholder = t[key];
+    });
+    
+    // Update document title
+    document.title = `AgriBD | ${t.brand.replace('<span>', '').replace('</span>', '')}`;
 }
 
 function showSection(sectionId) {
@@ -141,11 +241,25 @@ function showSection(sectionId) {
         closeSupplierView();
     } else if (sectionId === 'checkout') {
         renderCheckout();
+    } else if (sectionId === 'about') {
+        renderAbout();
+    }
+    updateLanguage();
+}
+
+function renderAbout() {
+    const list = document.getElementById('divisionContactsList');
+    if (list) {
+        list.innerHTML = Object.keys(hubData).map(div => `
+            <div class="payment-item" style="text-align:left; cursor:default;">
+                <strong>${div}</strong><br>
+                <small>📞 +880 17${Math.floor(10000000 + Math.random() * 90000000)}</small>
+            </div>
+        `).join('');
     }
 }
 
 function renderHome() {
-    // Categories
     const homeCats = document.getElementById('homeCategories');
     if (homeCats) {
         homeCats.innerHTML = categoryData.map(c => `
@@ -153,13 +267,12 @@ function renderHome() {
                 <img src="${c.image}" alt="${c.name}">
                 <div class="cat-info">
                     <h3>${c.icon} ${c.name}</h3>
-                    <span>${c.count}+ Products Available</span>
+                    <span>${c.count}+ ${translations[currentLang].navProducts}</span>
                 </div>
             </div>
         `).join('');
     }
 
-    // Top Selections
     const topSelectionsGrid = document.getElementById('topSelectionsGrid');
     if (topSelectionsGrid) {
         topSelectionsGrid.innerHTML = '';
@@ -168,7 +281,6 @@ function renderHome() {
         });
     }
 
-    // Observe all new reveal elements
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
@@ -176,14 +288,12 @@ function createProductCard(p) {
     const card = document.createElement('div');
     card.className = 'product-card reveal';
     
-    const minPrice = Math.min(...p.suppliers.map(s => s.price));
-    
     card.innerHTML = `
         <div class="product-img-container">
             <img src="${p.image}" class="product-img" alt="${p.name}">
-            <div class="card-badge">${p.category === 'Vegetables' || p.category === 'Fruit' ? 'Organic' : 'Premium'}</div>
+            <div class="card-badge">${p.category}</div>
             <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
-            <div class="quick-add" onclick="event.stopPropagation(); window.showSuppliersFromCard('${p.id}')">Add to Cart</div>
+            <div class="quick-add" onclick="event.stopPropagation(); window.showSuppliersFromCard('${p.id}')">${translations[currentLang].addToCart}</div>
         </div>
         <div class="product-info">
             <h3>${p.name}</h3>
@@ -191,7 +301,6 @@ function createProductCard(p) {
                 ${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(p.rating))} ${p.rating} ★
             </div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">${p.description}</p>
-            <div class="price">৳ ${minPrice} <span style="font-size: 0.8rem; font-weight: 400; color: var(--text-muted);">/ kg</span></div>
         </div>
     `;
     
@@ -200,9 +309,7 @@ function createProductCard(p) {
         showSuppliers(p);
     };
     
-    // We observe the specific card immediately
     if (revealObserver) revealObserver.observe(card);
-    
     return card;
 }
 
@@ -214,7 +321,7 @@ function showSuppliersFromCard(productId) {
 
 function setupFilters() {
     const categories = [...new Set(products.map(p => p.category))];
-    const regions = [...new Set(products.flatMap(p => p.suppliers.map(s => s.region)))];
+    const regions = divisions;
 
     const catContainer = document.getElementById('categoryFilters');
     if (catContainer) {
@@ -256,7 +363,7 @@ function renderProductsByCat(cat) {
 }
 
 function updatePriceLabel(val) {
-    document.getElementById('priceLabel').innerText = `Up to ৳ ${val}`;
+    document.getElementById('priceLabel').innerText = `${translations[currentLang].upTo} ৳ ${val}`;
     filters.maxPrice = val;
     applyFilters();
 }
@@ -280,13 +387,13 @@ function applyFilters() {
         const matchesSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
         const matchesCat = filters.categories.length === 0 || filters.categories.includes(p.category);
         const matchesReg = filters.regions.length === 0 || p.suppliers.some(s => filters.regions.includes(s.region));
-        const matchesPrice = p.suppliers.some(s => s.price <= filters.maxPrice);
+        const matchesPrice = p.marketPrice <= filters.maxPrice;
         
         return matchesSearch && matchesCat && matchesReg && matchesPrice;
     });
 
-    if (sort === 'price-low') filtered.sort((a, b) => Math.min(...a.suppliers.map(s => s.price)) - Math.min(...b.suppliers.map(s => s.price)));
-    if (sort === 'price-high') filtered.sort((a, b) => Math.min(...b.suppliers.map(s => s.price)) - Math.min(...a.suppliers.map(s => s.price)));
+    if (sort === 'price-low') filtered.sort((a, b) => a.marketPrice - b.marketPrice);
+    if (sort === 'price-high') filtered.sort((a, b) => b.marketPrice - a.marketPrice);
 
     const grid = document.getElementById('productGrid');
     if (grid) {
@@ -295,10 +402,22 @@ function applyFilters() {
     }
     
     const title = document.getElementById('viewTitle');
-    if (title) title.innerText = filtered.length > 0 ? `Showing ${filtered.length} Results` : "No Products Found";
+    if (title) title.innerText = filtered.length > 0 ? `${filtered.length} ${translations[currentLang].navProducts}` : translations[currentLang].noProductsFound || "No Products Found";
+}
+
+function setGrade(grade) {
+    currentGrade = grade;
+    document.getElementById('btnGradeA').classList.toggle('active', grade === 'A');
+    document.getElementById('btnGradeB').classList.toggle('active', grade === 'B');
+    if (currentProduct) showSuppliers(currentProduct);
+}
+
+function calculatePrice(basePrice, grade) {
+    return grade === 'A' ? Math.round(basePrice * 1.1) : basePrice;
 }
 
 function showSuppliers(product) {
+    currentProduct = product;
     const grid = document.getElementById('productGrid');
     const view = document.getElementById('supplierView');
     if (grid && view) {
@@ -306,20 +425,21 @@ function showSuppliers(product) {
         view.classList.remove('hidden');
     }
     const detailTitle = document.getElementById('productDetailTitle');
-    if (detailTitle) detailTitle.innerText = `Suppliers for ${product.name}`;
+    if (detailTitle) detailTitle.innerText = `${translations[currentLang].suppliersFor} ${product.name}`;
     
+    const price = calculatePrice(product.marketPrice, currentGrade);
+
     const list = document.getElementById('supplierList');
     if (list) {
         list.innerHTML = product.suppliers.map(s => `
             <div class="checkout-card fade-in" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                    <h4>${s.name}</h4>
-                    <p style="color:var(--text-muted); font-size: 0.85rem;">📍 ${s.region}</p>
+                    <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${s.region}</p>
                 </div>
                 <div style="text-align:right;">
-                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${s.price}<span style="font-size: 0.8rem; font-weight: 400;">/kg</span></div>
-                    <button class="cta-primary" style="padding: 10px 20px; margin-top: 10px;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}')">
-                        <i class="fa-solid fa-plus"></i> Add to Cart
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
+                    <button class="cta-primary" style="padding: 10px 20px; margin-top: 10px;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}', ${price})">
+                        <i class="fa-solid fa-plus"></i> ${translations[currentLang].addToCart}
                     </button>
                 </div>
             </div>
@@ -336,23 +456,23 @@ function closeSupplierView() {
     }
 }
 
-function addToCart(pStr, sStr) {
+function addToCart(pStr, sStr, price) {
     const p = JSON.parse(decodeURIComponent(pStr));
     const s = JSON.parse(decodeURIComponent(sStr));
     
-    const existing = cart.find(item => item.productId === p.id && item.supplierId === s.id);
+    const existing = cart.find(item => item.productId === p.id && item.region === s.region && item.grade === currentGrade);
     if (existing) {
-        existing.qty++;
+        existing.qty += 0.5;
     } else {
         cart.push({ 
             productId: p.id, 
             productName: p.name, 
             image: p.image,
-            supplierId: s.id, 
-            supplierName: s.name, 
-            price: s.price, 
-            qty: 1, 
-            region: s.region 
+            price: price, 
+            qty: 0.5, 
+            region: s.region,
+            grade: currentGrade,
+            unit: p.unit
         });
     }
     updateCartUI();
@@ -389,34 +509,34 @@ function updateCartUI() {
             <div style="flex: 1;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
                     <div>
-                        <strong style="display:block;">${item.productName}</strong>
-                        <span style="font-size:0.75rem; color:var(--text-muted);">${item.supplierName}</span>
+                        <strong style="display:block;">${item.productName} (${item.grade})</strong>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">📍 ${item.region}</span>
                     </div>
-                    <span style="font-weight: 700;">৳ ${item.price * item.qty}</span>
+                    <span style="font-weight: 700;">৳ ${Math.round(item.price * item.qty)}</span>
                 </div>
                 <div class="qty-controls">
-                    <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
-                    <span style="font-weight:700;">${item.qty}kg</span>
-                    <button class="qty-btn" onclick="window.updateQty(${index}, 1)">+</button>
+                    <button class="qty-btn" onclick="window.updateQty(${index}, -0.5)">-</button>
+                    <span style="font-weight:700;">${item.qty}${item.unit}</span>
+                    <button class="qty-btn" onclick="window.updateQty(${index}, 0.5)">+</button>
                 </div>
             </div>
         `;
         container.appendChild(div);
     });
 
-    let discount = 0;
-    if (totalQty >= 50) discount = subtotal * 0.15;
-    else if (totalQty >= 20) discount = subtotal * 0.10;
-    else if (totalQty >= 10) discount = subtotal * 0.05;
+    let discountPercent = 0;
+    if (totalQty >= 50) discountPercent = 15;
+    else if (totalQty >= 20) discountPercent = 10;
+    else if (totalQty >= 10) discountPercent = 5;
 
+    let discount = subtotal * (discountPercent / 100);
     const total = Math.round(subtotal - discount);
     
-    document.getElementById('cartSubtotal').innerText = `৳ ${subtotal}`;
-    document.getElementById('cartDiscount').innerText = `- ৳ ${Math.round(discount)}`;
+    document.getElementById('cartSubtotal').innerText = `৳ ${Math.round(subtotal)}`;
+    document.getElementById('cartDiscount').innerText = `- ৳ ${Math.round(discount)} (${discountPercent}%)`;
     document.getElementById('cartTotal').innerText = `৳ ${total}`;
-    document.getElementById('openCart').innerHTML = `<i class="fa-solid fa-shopping-basket"></i> Cart (${cart.length})`;
+    document.getElementById('openCart').innerHTML = `<i class="fa-solid fa-shopping-basket"></i> ${translations[currentLang].navCheckout} (${cart.length})`;
 
-    // Update Summary in Checkout if open
     if (currentSection === 'checkout') renderCheckout();
 }
 
@@ -428,24 +548,71 @@ function renderCheckout() {
             <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
             <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between;">
-                    <strong>${item.productName}</strong>
-                    <span>৳ ${item.price * item.qty}</span>
+                    <strong>${item.productName} (${item.grade})</strong>
+                    <span>৳ ${Math.round(item.price * item.qty)}</span>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}kg from ${item.supplierName}</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}${item.unit} from ${item.region}</p>
             </div>
         </div>
     `).join('');
     
     let subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
     let totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
-    let discount = 0;
-    if (totalQty >= 50) discount = subtotal * 0.15;
-    else if (totalQty >= 20) discount = subtotal * 0.10;
-    else if (totalQty >= 10) discount = subtotal * 0.05;
+    
+    let discountPercent = 0;
+    if (totalQty >= 50) discountPercent = 15;
+    else if (totalQty >= 20) discountPercent = 10;
+    else if (totalQty >= 10) discountPercent = 5;
 
-    document.getElementById('summarySubtotal').innerText = `৳ ${subtotal}`;
+    let discount = subtotal * (discountPercent / 100);
+
+    document.getElementById('summarySubtotal').innerText = `৳ ${Math.round(subtotal)}`;
+    document.getElementById('discountLabel').innerText = `${translations[currentLang].bulkDiscount} (${discountPercent}%)`;
     document.getElementById('summaryDiscount').innerText = `- ৳ ${Math.round(discount)}`;
     document.getElementById('checkoutFinalTotal').innerText = `৳ ${Math.round(subtotal - discount)}`;
+}
+
+function toggleDeliveryMethod() {
+    const method = document.getElementById('deliveryMethod').value;
+    document.getElementById('addressGroup').classList.toggle('hidden', method === 'hub');
+    document.getElementById('hubGroup').classList.toggle('hidden', method === 'delivery');
+    document.getElementById('deliveryEstimate').style.display = method === 'delivery' ? 'block' : 'none';
+}
+
+function populateDivisions() {
+    const selector = document.getElementById('hubDivision');
+    if (selector) {
+        selector.innerHTML = `<option value="">${translations[currentLang].chooseDivision}</option>` + 
+            divisions.map(div => `<option value="${div}">${div}</option>`).join('');
+    }
+}
+
+function updateHubs() {
+    const div = document.getElementById('hubDivision').value;
+    const selector = document.getElementById('hubLocation');
+    if (selector) {
+        if (!div) {
+            selector.innerHTML = `<option value="">${translations[currentLang].chooseDivision}</option>`;
+            return;
+        }
+        selector.innerHTML = hubData[div].map(hub => `<option value="${hub}">${hub}</option>`).join('');
+    }
+}
+
+function setPayment(method, el) {
+    document.querySelectorAll('.payment-item').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('paymentMethod').value = method;
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'bn' : 'en';
+    document.getElementById('langDisplay').innerText = currentLang === 'en' ? 'BN' : 'EN';
+    updateLanguage();
+    renderHome();
+    setupFilters();
+    applyFilters();
+    populateDivisions();
 }
 
 function setupEventListeners() {
@@ -459,14 +626,13 @@ function setupEventListeners() {
     if (checkoutForm) {
         checkoutForm.onsubmit = (e) => {
             e.preventDefault();
-            // Success State
             const container = document.querySelector('.checkout-container');
             container.innerHTML = `
                 <div class="checkout-card" style="text-align: center; padding: 100px 40px;">
                     <div style="font-size: 4rem; color: var(--accent); margin-bottom: 30px;"><i class="fa-solid fa-circle-check"></i></div>
-                    <h1 class="section-title">Order Confirmed!</h1>
-                    <p style="font-size: 1.2rem; margin-bottom: 40px;">Thank you ${document.getElementById('custName').value}. Your order is being processed and will reach you within 2-4 hours.</p>
-                    <button class="cta-primary" onclick="window.location.reload()">Back to Home</button>
+                    <h1 class="section-title">${translations[currentLang].orderConfirmed}</h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 40px;">${translations[currentLang].thankYou} ${document.getElementById('custName').value}.</p>
+                    <button class="cta-primary" onclick="window.location.reload()">${translations[currentLang].navHome}</button>
                 </div>
             `;
             cart = [];
@@ -486,5 +652,10 @@ window.closeSupplierView = closeSupplierView;
 window.renderProductsByCat = renderProductsByCat;
 window.clearFilters = clearFilters;
 window.showSuppliersFromCard = showSuppliersFromCard;
+window.toggleLanguage = toggleLanguage;
+window.setGrade = setGrade;
+window.toggleDeliveryMethod = toggleDeliveryMethod;
+window.updateHubs = updateHubs;
+window.setPayment = setPayment;
 
 init();
