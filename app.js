@@ -154,20 +154,23 @@ const products = [
 
     // Poultry
     { 
-        id: 'p1', name: 'Chicken Eggs', name_bn: 'মুরগির ডিম', category: 'Poultry', noGrade: true, 
-        description: 'Farm fresh organic chicken eggs.', desc_bn: 'খামারের তাজা লাল মুরগির ডিম।',
+        id: 'p1', name: 'Chicken Eggs', name_bn: 'মুরগির ডিম', category: 'Poultry', 
+        variantLabels: { A: 'Deshi', B: 'Farm' },
+        description: 'Native and farm fresh chicken eggs.', desc_bn: 'দেশি ও খামারের তাজা লাল মুরগির ডিম।',
         rating: 4.8, image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
         unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `p1-${i}`, region: div, price: getRegionalPrice(55, div) })) 
     },
     { 
-        id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', noGrade: true, 
-        description: 'Fresh native duck eggs.', desc_bn: 'তাজা দেশি হাঁসের ডিম।',
+        id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', 
+        variantLabels: { A: 'Deshi', B: 'Farm' },
+        description: 'Native and farm fresh duck eggs.', desc_bn: 'দেশি ও খামারের তাজা হাঁসের ডিম।',
         rating: 4.7, image: 'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=500', 
         unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `p2-${i}`, region: div, price: getRegionalPrice(75, div) })) 
     },
     { 
-        id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', noGrade: true, 
-        description: 'Nutrient-packed quail eggs.', desc_bn: 'পুষ্টিকর এবং ছোট কোয়েলের ডিম।',
+        id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', 
+        variantLabels: { A: 'Deshi', B: 'Farm' },
+        description: 'Native and farm fresh quail eggs.', desc_bn: 'তাজা ও পুষ্টিকর কোয়েলের ডিম।',
         rating: 4.9, image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=500', 
         unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `p3-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
@@ -256,6 +259,8 @@ const translations = {
         estimatedDelivery: 'Estimated delivery: 2-4 hours',
         gradeA: 'Grade A (Premium)',
         gradeB: 'Grade B (Market Price)',
+        variantDeshi: 'Deshi',
+        variantFarm: 'Farm',
         location: 'Location',
         collectionHub: 'Collect from Hub',
         homeDelivery: 'Home Delivery',
@@ -338,6 +343,8 @@ const translations = {
         estimatedDelivery: 'সম্ভাব্য ডেলিভারি: ২-৪ ঘণ্টা',
         gradeA: 'গ্রেড এ (প্রিমিয়াম)',
         gradeB: 'গ্রেড বি (বাজার দর)',
+        variantDeshi: 'দেশি',
+        variantFarm: 'ফার্ম',
         location: 'অবস্থান',
         collectionHub: 'হাব থেকে সংগ্রহ',
         homeDelivery: 'হোম ডেলিভারি',
@@ -680,6 +687,14 @@ function calculatePrice(basePrice, grade) {
     return grade === 'A' ? Math.round(basePrice * 1.1) : basePrice;
 }
 
+function getGradeLabel(product, grade) {
+    if (product.noGrade || !grade) return "";
+    if (product.variantLabels) {
+        return translations[currentLang]['variant' + product.variantLabels[grade]];
+    }
+    return translations[currentLang]['grade' + grade];
+}
+
 function showSuppliers(product) {
     currentProduct = product;
     const grid = document.getElementById('productGrid');
@@ -693,6 +708,16 @@ function showSuppliers(product) {
     
     if (gradeToggle) {
         gradeToggle.style.display = product.noGrade ? 'none' : 'flex';
+        const btnA = document.getElementById('btnGradeA');
+        const btnB = document.getElementById('btnGradeB');
+        if (product.variantLabels) {
+            btnA.innerText = translations[currentLang]['variant' + product.variantLabels.A];
+            btnB.innerText = translations[currentLang]['variant' + product.variantLabels.B];
+        } else {
+            btnA.setAttribute('data-t', 'gradeA');
+            btnB.setAttribute('data-t', 'gradeB');
+            updateLanguage(); // Re-apply default translations
+        }
     }
 
     const detailTitle = document.getElementById('productDetailTitle');
@@ -795,7 +820,7 @@ function updateCartUI() {
             <div style="flex: 1;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
                     <div>
-                        <strong style="display:block;">${name} ${item.grade ? '('+item.grade+')' : ''}</strong>
+                        <strong style="display:block;">${name} ${item.grade ? '(' + getGradeLabel(p, item.grade) + ')' : ''}</strong>
                         <span style="font-size:0.75rem; color:var(--text-muted);">📍 ${region}</span>
                     </div>
                     <span style="font-weight: 700;">৳ ${Math.round(item.price * item.qty)}</span>
@@ -840,7 +865,7 @@ function renderCheckout() {
                 <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
                 <div style="flex: 1;">
                     <div style="display: flex; justify-content: space-between;">
-                        <strong>${name} ${item.grade ? '('+item.grade+')' : ''}</strong>
+                        <strong>${name} ${item.grade ? '(' + getGradeLabel(p, item.grade) + ')' : ''}</strong>
                         <span>৳ ${Math.round(item.price * item.qty)}</span>
                     </div>
                     <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}${unitDisplay} from ${region}</p>
