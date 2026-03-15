@@ -12,15 +12,15 @@
 }
 
 [data-theme="light"] {
-    --bg-dark: #f8fafc; /* Slate-50 */
+    --bg-dark: #fdfcf8; /* Warm Cream / Organic Harvest */
     --bg-card: rgba(255, 255, 255, 0.7);
-    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.85); /* Slightly more opaque for better legibility on cream */
     --glass-border: rgba(0, 0, 0, 0.05);
-    --text-main: #0f172a; /* Slate-900 */
-    --text-muted: #64748b; /* Slate-500 */
+    --text-main: #1a2a1a; /* Deep Forest Gray */
+    --text-muted: #5c6c5c; /* Sage-toned muted text */
     --primary: #2d5a44;
     --accent: #16a34a;
-    --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow: 0 10px 40px rgba(45, 90, 68, 0.05); /* Subtle green-tinted shadow */
 }
 
 * {

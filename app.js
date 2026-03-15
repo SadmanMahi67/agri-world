@@ -930,11 +930,18 @@ function setPayment(method, el) {
 function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
     document.getElementById('langDisplay').innerText = currentLang === 'en' ? 'BN' : 'EN';
+    
     updateLanguage();
     renderHome();
     setupFilters();
     applyFilters();
     populateDivisions();
+    updateCartUI(); // Ensure cart labels translate
+    
+    // Refresh current product's supplier view to fix egg variants (Deshi/Farm) logic
+    if (currentProduct) {
+        showSuppliers(currentProduct);
+    }
 }
 
 function toggleTheme() {
