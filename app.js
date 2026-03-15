@@ -552,7 +552,8 @@ function renderHome() {
 
 function createProductCard(p) {
     const card = document.createElement('div');
-    card.className = 'product-card reveal';
+    const catClass = p.category.toLowerCase();
+    card.className = `product-card reveal cat-${catClass}`;
     
     const name = currentLang === 'bn' ? p.name_bn : p.name;
     const desc = currentLang === 'bn' ? p.desc_bn : p.description;
@@ -561,7 +562,7 @@ function createProductCard(p) {
     card.innerHTML = `
         <div class="product-img-container">
             <img src="${p.image}" class="product-img" alt="${name}">
-            <div class="card-badge">${catDisplay}</div>
+            <div class="card-badge badge-${catClass}">${catDisplay}</div>
             <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
             <div class="quick-add" onclick="event.stopPropagation(); window.showSuppliersFromCard('${p.id}')">${translations[currentLang].addToCart}</div>
         </div>
