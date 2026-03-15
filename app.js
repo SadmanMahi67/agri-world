@@ -49,6 +49,18 @@ const products = [
         rating: 4.5, image: 'https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=500', 
         unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `v12-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
+    { 
+        id: 'v13', name: 'Onion', name_bn: 'পেঁয়াজ', category: 'Vegetables', 
+        description: 'Pungent and fresh local onions.', desc_bn: 'ঝাঁঝালো এবং তাজা দেশি পেঁয়াজ।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=500', 
+        unit: 'kg', marketPrice: 80, suppliers: divisions.map((div, i) => ({ id: `v13-${i}`, region: div, price: getRegionalPrice(80, div) })) 
+    },
+    { 
+        id: 'v14', name: 'Radish', name_bn: 'মুলা', category: 'Vegetables', 
+        description: 'Crisp white winter radish.', desc_bn: 'তাজা সাদা শীতকালীন মুলা।',
+        rating: 4.4, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=500', 
+        unit: 'kg', marketPrice: 30, suppliers: divisions.map((div, i) => ({ id: `v14-${i}`, region: div, price: getRegionalPrice(30, div) })) 
+    },
 
     // Fruits
     { 
@@ -121,6 +133,24 @@ const products = [
         rating: 4.9, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
         unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `m1-${i}`, region: div, price: getRegionalPrice(90, div) })) 
     },
+    { 
+        id: 'm2', name: 'Goat Milk', name_bn: 'ছাগলের দুধ', category: 'Dairy', noGrade: true, 
+        description: 'Nutritious goat milk.', desc_bn: 'পুষ্টিকর ছাগলের দুধ।',
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=500', 
+        unit: 'liters', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `m2-${i}`, region: div, price: getRegionalPrice(150, div) })) 
+    },
+    { 
+        id: 'm3', name: 'Sheep Milk', name_bn: 'ভেড়ার দুধ', category: 'Dairy', noGrade: true, 
+        description: 'Rare creamy sheep milk.', desc_bn: 'বিরল এবং ঘন ভেড়ার দুধ।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1444858291040-58f756a3bcd6?w=500', 
+        unit: 'liters', marketPrice: 200, suppliers: divisions.map((div, i) => ({ id: `m3-${i}`, region: div, price: getRegionalPrice(200, div) })) 
+    },
+    { 
+        id: 'm4', name: 'Buffalo Milk', name_bn: 'মহিষের দুধ', category: 'Dairy', noGrade: true, 
+        description: 'Rich buffalo milk.', desc_bn: 'পুষ্টিকর এবং ঘন মহিষের দুধ।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
+        unit: 'liters', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `m4-${i}`, region: div, price: getRegionalPrice(120, div) })) 
+    },
 
     // Poultry
     { 
@@ -128,6 +158,18 @@ const products = [
         description: 'Farm fresh organic chicken eggs.', desc_bn: 'খামারের তাজা লাল মুরগির ডিম।',
         rating: 4.8, image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
         unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `p1-${i}`, region: div, price: getRegionalPrice(55, div) })) 
+    },
+    { 
+        id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', noGrade: true, 
+        description: 'Fresh native duck eggs.', desc_bn: 'তাজা দেশি হাঁসের ডিম।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=500', 
+        unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `p2-${i}`, region: div, price: getRegionalPrice(75, div) })) 
+    },
+    { 
+        id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', noGrade: true, 
+        description: 'Nutrient-packed quail eggs.', desc_bn: 'পুষ্টিকর এবং ছোট কোয়েলের ডিম।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=500', 
+        unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `p3-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
 
     // Crops
@@ -154,12 +196,6 @@ const products = [
         description: 'High protein red lentils (Dal).', desc_bn: 'প্রোটিন সমৃদ্ধ ছোট দানার দেশি মসুর ডাল।',
         rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=500', 
         unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `c2-${i}`, region: div, price: getRegionalPrice(155, div) })) 
-    },
-    { 
-        id: 'c3', name: 'Mustard Oil', name_bn: 'সরিষার তেল', category: 'Crops', noGrade: true,
-        description: 'Pure cold-pressed mustard oil.', desc_bn: 'কাঠের ঘানিতে ভাঙানো খাঁটি সরিষার তেল।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500', 
-        unit: 'liters', marketPrice: 220, suppliers: divisions.map((div, i) => ({ id: `c3-${i}`, region: div, price: getRegionalPrice(220, div) })) 
     }
 ];
 
