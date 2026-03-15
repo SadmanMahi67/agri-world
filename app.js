@@ -98,31 +98,31 @@ const products = [
     { 
         id: 'fi1', name: 'Hilsa Fish', name_bn: 'ইলিশ মাছ', category: 'Fish', 
         description: 'Padma Hilsa - The King of Fish.', desc_bn: 'পদ্মার তাজা ইলিশ - মাছের রাজা।',
-        rating: 5.0, image: 'https://images.pexels.com/photos/3296434/pexels-photo-3296434.jpeg?w=400', 
+        rating: 5.0, image: 'assets/hilsa_fish.jpg', 
         unit: 'kg', marketPrice: 1600, suppliers: divisions.map((div, i) => ({ id: `fi1-${i}`, region: div, price: getRegionalPrice(1600, div) })) 
     },
     { 
         id: 'fi3', name: 'Rohu Fish', name_bn: 'রুই মাছ', category: 'Fish', 
         description: 'Fresh river Rohu fish.', desc_bn: 'নদীর তাজা ও বড় রুই মাছ।',
-        rating: 4.8, image: 'https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?w=400', 
+        rating: 4.8, image: 'assets/rohu_fish.jpg', 
         unit: 'kg', marketPrice: 450, suppliers: divisions.map((div, i) => ({ id: `fi3-${i}`, region: div, price: getRegionalPrice(450, div) })) 
     },
     { 
         id: 'fi4', name: 'Katla Fish', name_bn: 'কাতলা মাছ', category: 'Fish', 
         description: 'Native freshwater Katla fish.', desc_bn: 'মিষ্টি জলের বড় কাতলা মাছ।',
-        rating: 4.7, image: 'https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?w=400', 
+        rating: 4.7, image: 'assets/katla_fish.jpg', 
         unit: 'kg', marketPrice: 420, suppliers: divisions.map((div, i) => ({ id: `fi4-${i}`, region: div, price: getRegionalPrice(420, div) })) 
     },
     { 
         id: 'fi5', name: 'Boal Fish', name_bn: 'বোয়াল মাছ', category: 'Fish', 
         description: 'Freshwater Boal fish.', desc_bn: 'নদীর জ্যান্ত এবং বড় বোয়াল মাছ।',
-        rating: 4.6, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=500', 
+        rating: 4.6, image: 'assets/boal_fish.jpg', 
         unit: 'kg', marketPrice: 850, suppliers: divisions.map((div, i) => ({ id: `fi5-${i}`, region: div, price: getRegionalPrice(850, div) })) 
     },
     { 
         id: 'fi8', name: 'Koi Fish', name_bn: 'কৈ মাছ', category: 'Fish', 
         description: 'Native nutritious Koi fish.', desc_bn: 'দেশি পুষ্টিকর জ্যান্ত কৈ মাছ।',
-        rating: 4.5, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        rating: 4.5, image: 'assets/koi_fish.jpg', 
         unit: 'kg', marketPrice: 550, suppliers: divisions.map((div, i) => ({ id: `fi8-${i}`, region: div, price: getRegionalPrice(550, div) })) 
     },
 
@@ -164,14 +164,14 @@ const products = [
         id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh duck eggs.', desc_bn: 'দেশি ও খামারের তাজা হাঁসের ডিম।',
-        rating: 4.7, image: 'assets/duck_egg.jpg', 
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1587486842777-e43343132039?w=500', 
         unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `p2-${i}`, region: div, price: getRegionalPrice(75, div) })) 
     },
     { 
         id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh quail eggs.', desc_bn: 'তাজা ও পুষ্টিকর কোয়েলের ডিম।',
-        rating: 4.9, image: 'assets/quail_egg.jpg', 
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1599084993091-190c1978794e?w=500', 
         unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `p3-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
 
@@ -203,12 +203,12 @@ const products = [
 ];
 
 const categoryData = [
-    { name: 'Vegetables', icon: '🥦', count: 450, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=400' },
+    { name: 'Vegetables', icon: '🥦', count: 450, image: 'assets/cat_vegetables.jpg' },
     { name: 'Fruit', icon: '🍎', count: 320, image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400' },
-    { name: 'Dairy', icon: '🥛', count: 120, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=400' },
+    { name: 'Dairy', icon: '🥛', count: 120, image: 'assets/cat_dairy.jpg' },
     { name: 'Poultry', icon: '🥚', count: 110, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400' },
-    { name: 'Crops', icon: '🌾', count: 260, image: 'https://images.unsplash.com/photo-1500313830540-7b6650a74fd0?w=400' },
-    { name: 'Fish', icon: '🐟', count: 180, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=400' }
+    { name: 'Crops', icon: '🌾', count: 260, image: 'assets/cat_crops.jpg' },
+    { name: 'Fish', icon: '🐟', count: 180, image: 'assets/cat_fish.jpg' }
 ];
 
 // Localization
@@ -466,8 +466,25 @@ function updateLanguage() {
         if (t[key]) el.placeholder = t[key];
     });
     
+    // Update price label if in listing view
+    if (filters.maxPrice) {
+        updatePriceLabel(filters.maxPrice);
+    }
+    
     // Update document title
     document.title = `AgriBD | ${t.brand.replace('<span>', '').replace('</span>', '')}`;
+}
+
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.getElementById('menuBtn').querySelector('i');
+    if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuBtn.classList.replace('fa-xmark', 'fa-bars');
+    } else {
+        navLinks.classList.add('active');
+        menuBtn.classList.replace('fa-bars', 'fa-xmark');
+    }
 }
 
 function showSection(sectionId) {

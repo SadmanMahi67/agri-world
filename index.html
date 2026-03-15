@@ -15,11 +15,11 @@
         <!-- Navigation -->
         <nav id="navbar">
             <div class="logo" id="brandLogo" onclick="showSection('home')">Agri<span>BD</span></div>
-            <div class="nav-links">
-                <a href="#" onclick="showSection('home')" data-t="navHome">হোম</a>
-                <a href="#" onclick="showSection('listing')" data-t="navProducts">পণ্যসমূহ</a>
-                <a href="#" onclick="showSection('about')" data-t="navAbout">আমাদের সম্পর্কে</a>
-                <a href="#" onclick="showSection('checkout')" data-t="navCheckout">চেকআউট</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#" onclick="showSection('home'); toggleMobileMenu()" data-t="navHome">হোম</a>
+                <a href="#" onclick="showSection('listing'); toggleMobileMenu()" data-t="navProducts">পণ্যসমূহ</a>
+                <a href="#" onclick="showSection('about'); toggleMobileMenu()" data-t="navAbout">আমাদের সম্পর্কে</a>
+                <a href="#" onclick="showSection('checkout'); toggleMobileMenu()" data-t="navCheckout">চেকআউট</a>
             </div>
             <div class="nav-actions">
                 <div class="lang-toggle" onclick="toggleLanguage()" style="cursor:pointer; font-weight:700; color:var(--accent); margin-right: 15px;">
@@ -32,6 +32,9 @@
                 <button class="cart-btn" id="openCart">
                     <i class="fa-solid fa-shopping-basket"></i> <span data-t="yourBasket">Cart</span> (<span id="cartCount">0</span>)
                 </button>
+                <div class="menu-btn" id="menuBtn" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </nav>
 
