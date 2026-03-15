@@ -27,7 +27,7 @@
                 </div>
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <button class="cart-btn" id="openCart">
-                    <i class="fa-solid fa-shopping-basket"></i> Cart (0)
+                    <i class="fa-solid fa-shopping-basket"></i> <span data-t="yourBasket">Cart</span> (<span id="cartCount">0</span>)
                 </button>
             </div>
         </nav>
@@ -113,7 +113,7 @@
 
                     <div class="listing-main">
                         <div class="listing-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                            <h2 id="viewTitle" class="section-title" style="margin: 0; font-size: 2rem;">All Products</h2>
+                            <h2 id="viewTitle" class="section-title" style="margin: 0; font-size: 2rem;" data-t="navProducts">পণ্যসমূহ</h2>
                             <div class="sort-group" style="display: flex; align-items: center; gap: 15px;">
                                 <label style="color: var(--text-muted);" data-t="sortBy">ক্রমানুসার:</label>
                                 <select id="sortSelect" onchange="applyFilters()" style="width: 200px; padding: 10px;">
@@ -133,7 +133,7 @@
                                 <i class="fa-solid fa-arrow-left"></i> <span data-t="backToProducts">পণ্যতালিকায় ফিরুন</span>
                             </button>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                                <h2 id="productDetailTitle" style="margin: 0; font-size: 2.5rem;">Suppliers</h2>
+                                <h2 id="productDetailTitle" style="margin: 0; font-size: 2.5rem;" data-t="suppliers">Suppliers</h2>
                                 <div class="grade-toggle" style="display: flex; gap: 10px;">
                                     <button id="btnGradeA" class="qty-btn active" style="width:auto; padding: 5px 15px;" onclick="setGrade('A')" data-t="gradeA">গ্রেড এ (প্রিমিয়াম)</button>
                                     <button id="btnGradeB" class="qty-btn" style="width:auto; padding: 5px 15px;" onclick="setGrade('B')" data-t="gradeB">গ্রেড বি (বাজার দর)</button>
@@ -212,7 +212,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>পেমেন্ট পদ্ধতি</label>
+                                    <label data-t="payment">পেমেন্ট পদ্ধতি</label>
                                     <div class="payment-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                                         <div class="payment-item active" onclick="setPayment('bkash', this)">bKash</div>
                                         <div class="payment-item" onclick="setPayment('nagad', this)">Nagad</div>
@@ -257,7 +257,7 @@
         <!-- Cart Drawer -->
         <div id="cartDrawer" class="cart-overlay">
             <div class="cart-header">
-                <h2>Your Basket</h2>
+                <h2 data-t="yourBasket">Your Basket</h2>
                 <span class="close-cart" id="closeCart">&times;</span>
             </div>
             <div class="cart-items" id="cartItems">
@@ -265,18 +265,18 @@
             </div>
             <div class="cart-footer" style="padding-top: 30px; border-top: 1px solid var(--glass-border);">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <span>Subtotal</span>
+                    <span data-t="subtotal">Subtotal</span>
                     <span id="cartSubtotal" style="font-weight: 600;">৳ 0</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 20px; color: var(--accent);">
-                    <span>Bulk Discount</span>
+                    <span data-t="bulkDiscount">Bulk Discount</span>
                     <span id="cartDiscount">৳ 0</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.5rem; margin-bottom: 30px;">
-                    <span>Total</span>
+                    <span data-t="total">Total</span>
                     <span id="cartTotal">৳ 0</span>
                 </div>
-                <button class="shimmer-btn" onclick="showSection('checkout'); document.getElementById('cartDrawer').classList.remove('open');">Proceed to Checkout</button>
+                <button class="shimmer-btn" onclick="showSection('checkout'); document.getElementById('cartDrawer').classList.remove('open');" data-t="proceedToCheckout">Proceed to Checkout</button>
             </div>
         </div>
 
@@ -284,8 +284,8 @@
         <footer>
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="logo">Agri<span>World</span></div>
-                    <p style="color: var(--text-muted); margin-top: 20px; max-width: 300px;">Directly connecting you to the heart of Bangladeshi agriculture. Fresh, organic, and fair.</p>
+                    <div class="logo">Agri<span>BD</span></div>
+                    <p style="color: var(--text-muted); margin-top: 20px; max-width: 300px;" data-t="aboutLead">Directly connecting you to the heart of Bangladeshi agriculture.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
@@ -293,12 +293,12 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
+                    <h4 data-t="navHome">Home</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showSection('home')">Home</a></li>
-                        <li><a href="#" onclick="showSection('listing')">Products</a></li>
-                        <li><a href="#" onclick="showSection('about')">Our Story</a></li>
-                        <li><a href="#" onclick="showSection('checkout')">Cart</a></li>
+                        <li><a href="#" onclick="showSection('home')" data-t="navHome">Home</a></li>
+                        <li><a href="#" onclick="showSection('listing')" data-t="navProducts">Products</a></li>
+                        <li><a href="#" onclick="showSection('about')" data-t="navAbout">Our Story</a></li>
+                        <li><a href="#" onclick="showSection('checkout')" data-t="navCheckout">Cart</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -320,7 +320,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Made with ❤️ for Bangladeshi Farmers | &copy; 2026 Agri World</p>
+                <p>&copy; 2026 AgriBD | Freshness from Every Division</p>
             </div>
         </footer>
     </div>

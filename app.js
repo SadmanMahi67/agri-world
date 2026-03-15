@@ -7,30 +7,201 @@ const getRegionalPrice = (base, div) => {
 
 // Product Data Structure
 const products = [
-    { id: 'v1', name: 'Cabbage', category: 'Vegetables', description: 'Fresh crisp green cabbage.', rating: 4.8, image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(70, div) })) },
-    { id: 'v2', name: 'Potatoes', category: 'Vegetables', description: 'Premium quality diamond potatoes.', rating: 4.5, image: 'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400', unit: 'kg', marketPrice: 25, suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div, price: getRegionalPrice(25, div) })) },
-    { id: 'v3', name: 'Carrots', category: 'Vegetables', description: 'Sweet orange organic carrots.', rating: 4.7, image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div, price: getRegionalPrice(150, div) })) },
-    { id: 'v4', name: 'Tomatoes', category: 'Vegetables', description: 'Vine-ripened red tomatoes.', rating: 4.6, image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400', unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) },
-    { id: 'v5', name: 'Spinach', category: 'Vegetables', description: 'Fresh nutritional spinach leaves.', rating: 4.9, image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400', unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div, price: getRegionalPrice(40, div) })) },
-    { id: 'v6', name: 'Brinjal', category: 'Vegetables', description: 'Large purple eggplants.', rating: 4.5, image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div, price: getRegionalPrice(120, div) })) },
+    { 
+        id: 'v1', 
+        name: 'Cabbage', name_bn: 'বাধাকপি', 
+        category: 'Vegetables', 
+        description: 'Fresh crisp green cabbage.', desc_bn: 'তাজা এবং কচকচে সবুজ বাধাকপি।',
+        rating: 4.8, 
+        image: 'https://images.unsplash.com/photo-1548694054-ca792f6b83f3?w=500', 
+        unit: 'kg', marketPrice: 70, 
+        suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(70, div) })) 
+    },
+    { 
+        id: 'v2', 
+        name: 'Potatoes', name_bn: 'আলু',
+        category: 'Vegetables', 
+        description: 'Premium quality diamond potatoes.', desc_bn: 'সেরা মানের ডায়মন্ড আলু।',
+        rating: 4.5, 
+        image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
+        unit: 'kg', marketPrice: 25, 
+        suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div, price: getRegionalPrice(25, div) })) 
+    },
+    { 
+        id: 'v3', 
+        name: 'Carrots', name_bn: 'গাজর',
+        category: 'Vegetables', 
+        description: 'Sweet orange organic carrots.', desc_bn: 'মিষ্টি এবং পুষ্টিকর অর্গানিক গাজর।',
+        rating: 4.7, 
+        image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500', 
+        unit: 'kg', marketPrice: 150, 
+        suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div, price: getRegionalPrice(150, div) })) 
+    },
+    { 
+        id: 'v4', 
+        name: 'Tomatoes', name_bn: 'টমেটো',
+        category: 'Vegetables', 
+        description: 'Vine-ripened red tomatoes.', desc_bn: 'গাছেই পাকা তাজা লাল টমেটো।',
+        rating: 4.6, 
+        image: 'https://images.unsplash.com/photo-1561131245-c3577d33d969?w=500', 
+        unit: 'kg', marketPrice: 130, 
+        suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) 
+    },
+    { 
+        id: 'v5', 
+        name: 'Spinach', name_bn: 'পালং শাক',
+        category: 'Vegetables', 
+        description: 'Fresh nutritional spinach leaves.', desc_bn: 'পুষ্টিগুণে ভরপুর টাটকা পালং শাক।',
+        rating: 4.9, 
+        image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500', 
+        unit: 'kg', marketPrice: 40, 
+        suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+    },
+    { 
+        id: 'v6', 
+        name: 'Brinjal', name_bn: 'বেগুন',
+        category: 'Vegetables', 
+        description: 'Large purple eggplants.', desc_bn: 'বড় এবং তাজা লম্বু বেগুন।',
+        rating: 4.5, 
+        image: 'https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=500', 
+        unit: 'kg', marketPrice: 120, 
+        suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div, price: getRegionalPrice(120, div) })) 
+    },
     
-    { id: 'f1', name: 'Apples', category: 'Fruit', description: 'Crisp and sweet gala apples.', rating: 4.8, image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400', unit: 'kg', marketPrice: 280, suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div, price: getRegionalPrice(280, div) })) },
-    { id: 'f2', name: 'Banana', category: 'Fruit', description: 'Sweet tropical organic bananas.', rating: 4.4, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', unit: 'hali', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div, price: getRegionalPrice(40, div) })) },
-    { id: 'f3', name: 'Mango', category: 'Fruit', description: 'Famous Rajshahi langra mangoes.', rating: 5.0, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', unit: 'kg', marketPrice: 125, suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div, price: getRegionalPrice(125, div) })) },
+    { 
+        id: 'f1', 
+        name: 'Apples', name_bn: 'আপেল',
+        category: 'Fruit', 
+        description: 'Crisp and sweet gala apples.', desc_bn: 'মিষ্টি এবং মচমচে গালা আপেল।',
+        rating: 4.8, 
+        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?w=500', 
+        unit: 'kg', marketPrice: 280, 
+        suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div, price: getRegionalPrice(280, div) })) 
+    },
+    { 
+        id: 'f2', 
+        name: 'Banana', name_bn: 'কলা',
+        category: 'Fruit', 
+        description: 'Sweet tropical organic bananas.', desc_bn: 'মিষ্টি ও পুষ্টিকর খাস কলা।',
+        rating: 4.4, 
+        image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        unit: 'hali', marketPrice: 40, 
+        suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+    },
+    { 
+        id: 'f3', 
+        name: 'Mango', name_bn: 'আম',
+        category: 'Fruit', 
+        description: 'Famous Rajshahi langra mangoes.', desc_bn: 'রাজশাহীর বিখ্যাত সুমিষ্ট লেংড়া আম।',
+        rating: 5.0, 
+        image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
+        unit: 'kg', marketPrice: 125, 
+        suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div, price: getRegionalPrice(125, div) })) 
+    },
     
-    { id: 'm1', name: 'Cow Milk', category: 'Dairy', noGrade: true, description: 'Pure farm-fresh cow milk.', rating: 4.9, image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400', unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div, price: getRegionalPrice(90, div) })) },
-    { id: 'm2', name: 'Goat Milk', category: 'Dairy', noGrade: true, description: 'Nutritious goat milk, easy to digest.', rating: 4.7, image: 'https://images.unsplash.com/photo-1528750951163-f014fc9ad3ac?w=400', unit: 'liters', marketPrice: 140, suppliers: divisions.map((div, i) => ({ id: `s10b-${i}`, region: div, price: getRegionalPrice(140, div) })) },
-    { id: 'm3', name: 'Sheep Milk', category: 'Dairy', noGrade: true, description: 'Rare and creamy sheep milk.', rating: 4.6, image: 'https://images.unsplash.com/photo-1517448931760-9bf4414148c5?w=400', unit: 'liters', marketPrice: 220, suppliers: divisions.map((div, i) => ({ id: `s10c-${i}`, region: div, price: getRegionalPrice(220, div) })) },
+    { 
+        id: 'm1', 
+        name: 'Cow Milk', name_bn: 'গরুর দুধ',
+        category: 'Dairy', noGrade: true, 
+        description: 'Pure farm-fresh cow milk.', desc_bn: 'খামারের খাঁটি গরুর দুধ।',
+        rating: 4.9, 
+        image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
+        unit: 'liters', marketPrice: 90, 
+        suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div, price: getRegionalPrice(90, div) })) 
+    },
+    { 
+        id: 'm2', 
+        name: 'Goat Milk', name_bn: 'ছাগলের দুধ',
+        category: 'Dairy', noGrade: true, 
+        description: 'Nutritious goat milk, easy to digest.', desc_bn: 'পুষ্টিকর এবং সহজে হজমযোগ্য ছাগলের দুধ।',
+        rating: 4.7, 
+        image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=500', 
+        unit: 'liters', marketPrice: 140, 
+        suppliers: divisions.map((div, i) => ({ id: `s10b-${i}`, region: div, price: getRegionalPrice(140, div) })) 
+    },
+    { 
+        id: 'm3', 
+        name: 'Sheep Milk', name_bn: 'ভেড়ার দুধ',
+        category: 'Dairy', noGrade: true, 
+        description: 'Rare and creamy sheep milk.', desc_bn: 'বিরল এবং অত্যন্ত ননীযুক্ত ভেড়ার দুধ।',
+        rating: 4.6, 
+        image: 'https://images.unsplash.com/photo-1444858291040-58f756a3bcd6?w=500', 
+        unit: 'liters', marketPrice: 220, 
+        suppliers: divisions.map((div, i) => ({ id: `s10c-${i}`, region: div, price: getRegionalPrice(220, div) })) 
+    },
     
-    { id: 'p1', name: 'Chicken Eggs', category: 'Poultry', noGrade: true, description: 'Farm fresh organic chicken eggs.', rating: 4.8, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400', unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div, price: getRegionalPrice(55, div) })) },
-    { id: 'p2', name: 'Duck Eggs', category: 'Poultry', noGrade: true, description: 'Rich and tasty native duck eggs.', rating: 4.7, image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400', unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `s11b-${i}`, region: div, price: getRegionalPrice(75, div) })) },
-    { id: 'p3', name: 'Quail Eggs', category: 'Poultry', noGrade: true, description: 'Tiny but nutrient-packed quail eggs.', rating: 4.9, image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=400', unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `s11c-${i}`, region: div, price: getRegionalPrice(35, div) })) },
+    { 
+        id: 'p1', 
+        name: 'Chicken Eggs', name_bn: 'মুরগির ডিম',
+        category: 'Poultry', noGrade: true, 
+        description: 'Farm fresh organic chicken eggs.', desc_bn: 'খামারের অর্গানিক টাটকা মুরগির ডিম।',
+        rating: 4.8, 
+        image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
+        unit: 'hali', marketPrice: 55, 
+        suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div, price: getRegionalPrice(55, div) })) 
+    },
+    { 
+        id: 'p2', 
+        name: 'Duck Eggs', name_bn: 'হাঁসের ডিম',
+        category: 'Poultry', noGrade: true, 
+        description: 'Rich and tasty native duck eggs.', desc_bn: 'দেশি হাঁসের বড় ও সুস্বাদু ডিম।',
+        rating: 4.7, 
+        image: 'https://images.unsplash.com/photo-1582722872445-44ad5c7894de?w=500', 
+        unit: 'hali', marketPrice: 75, 
+        suppliers: divisions.map((div, i) => ({ id: `s11b-${i}`, region: div, price: getRegionalPrice(75, div) })) 
+    },
+    { 
+        id: 'p3', 
+        name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম',
+        category: 'Poultry', noGrade: true, 
+        description: 'Tiny but nutrient-packed quail eggs.', desc_bn: 'ছোট কিন্তু পুষ্টিগুণে অত্যন্ত সমৃদ্ধ কোয়েলের ডিম।',
+        rating: 4.9, 
+        image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=500', 
+        unit: 'hali', marketPrice: 35, 
+        suppliers: divisions.map((div, i) => ({ id: `s11c-${i}`, region: div, price: getRegionalPrice(35, div) })) 
+    },
     
-    { id: 'c1', name: 'Rice', category: 'Crops', description: 'Aromatic long-grain miniket rice.', rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div, price: getRegionalPrice(70, div) })) },
-    { id: 'c2', name: 'Lentils', category: 'Crops', description: 'High protein red lentils (Dal).', rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400', unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div, price: getRegionalPrice(155, div) })) },
+    { 
+        id: 'c1', 
+        name: 'Rice', name_bn: 'চাল',
+        category: 'Crops', 
+        description: 'Aromatic long-grain miniket rice.', desc_bn: 'মিনিকেট লম্বা দানার সুগন্ধি চাল।',
+        rating: 4.7, 
+        image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        unit: 'kg', marketPrice: 70, 
+        suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div, price: getRegionalPrice(70, div) })) 
+    },
+    { 
+        id: 'c2', 
+        name: 'Lentils', name_bn: 'মসুর ডাল',
+        category: 'Crops', 
+        description: 'High protein red lentils (Dal).', desc_bn: 'উচ্চ প্রোটিন সমৃদ্ধ দেশি মসুর ডাল।',
+        rating: 4.6, 
+        image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=500', 
+        unit: 'kg', marketPrice: 155, 
+        suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div, price: getRegionalPrice(155, div) })) 
+    },
     
-    { id: 'fi1', name: 'Hilsa Fish', category: 'Fish', description: 'Padma Hilsa - The King of Fish.', rating: 5.0, image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400', unit: 'kg', marketPrice: 1800, suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div, price: getRegionalPrice(1800, div) })) },
-    { id: 'fi2', name: 'Prawns', category: 'Fish', description: 'Freshwater giant prawns.', rating: 4.8, image: 'https://images.unsplash.com/photo-1553659971-f01207815844?w=400', unit: 'kg', marketPrice: 950, suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div, price: getRegionalPrice(950, div) })) }
+    { 
+        id: 'fi1', 
+        name: 'Hilsa Fish', name_bn: 'ইলিশ মাছ',
+        category: 'Fish', 
+        description: 'Padma Hilsa - The King of Fish.', desc_bn: 'পদ্মার তাজা ইলিশ - মাছের রাজা।',
+        rating: 5.0, 
+        image: 'https://images.unsplash.com/photo-1604543519952-12e848f57991?w=500', 
+        unit: 'kg', marketPrice: 1800, 
+        suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div, price: getRegionalPrice(1800, div) })) 
+    },
+    { 
+        id: 'fi2', 
+        name: 'Prawns', name_bn: 'চিংড়ি',
+        category: 'Fish', 
+        description: 'Freshwater giant prawns.', desc_bn: 'মিষ্টি জলের বড় গলদা চিংড়ি।',
+        rating: 4.8, 
+        image: 'https://images.unsplash.com/photo-1559742811-824289541bad?w=500', 
+        unit: 'kg', marketPrice: 950, 
+        suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div, price: getRegionalPrice(950, div) })) 
+    }
 ];
 
 const categoryData = [
@@ -95,10 +266,15 @@ const translations = {
         homeDelivery: 'Home Delivery',
         chooseDivision: 'Choose Division',
         chooseHub: 'Choose Hub',
+        payment: 'Payment Method',
         aboutHeadline: 'Rooted in Bangladesh',
         aboutLead: 'AgriBD is dedicated to bridging the gap between local farmers across Bangladesh and consumers who value quality, transparency, and freshness.',
         aboutBody: 'Our mission is to empower farmers by providing direct access to the market while ensuring our customers receive the best produce from all 8 divisions. Grade A products are premium, carefully selected for size and quality. Grade B products are unshaped but equally fresh market-price goods.',
         divisionContacts: 'Division Hub Contacts',
+        noProductsFound: 'No Products Found',
+        catVegetables: 'Vegetables', catFruit: 'Fruit', catDairy: 'Dairy', catPoultry: 'Poultry', catCrops: 'Crops', catFish: 'Fish',
+        divDhaka: 'Dhaka', divChattogram: 'Chattogram', divRajshahi: 'Rajshahi', divKhulna: 'Khulna', divBarishal: 'Barishal', divSylhet: 'Sylhet', divRangpur: 'Rangpur', divMymensingh: 'Mymensingh',
+        unit_kg: 'kg', unit_liters: 'liters', unit_hali: 'hali'
     },
     bn: {
         brand: 'এগ্রি<span>বিডি</span>',
@@ -151,10 +327,15 @@ const translations = {
         homeDelivery: 'হোম ডেলিভারি',
         chooseDivision: 'বিভাগ নির্বাচন করুন',
         chooseHub: 'হাব নির্বাচন করুন',
+        payment: 'পেমেন্ট পদ্ধতি',
         aboutHeadline: 'বাংলাদেশের মাটির সাথে',
         aboutLead: 'এগ্রিবিডি বাংলাদেশের স্থানীয় কৃষক এবং মানসম্পন্ন পণ্যের সন্ধানকারী ক্রেতাদের মধ্যে সেতুবন্ধন তৈরিতে কাজ করে।',
         aboutBody: 'আমাদের লক্ষ্য হলো কৃষকদের সরাসরি বাজারে প্রবেশের সুযোগ করে দেওয়া এবং ক্রেতাদের ৮টি বিভাগ থেকে সেরা পণ্য নিশ্চিত করা। গ্রেড এ পণ্যগুলো প্রিমিয়াম মানের। গ্রেড বি পণ্যগুলো দেখতে কিছুটা ভিন্ন হলেও তাজা এবং বাজার মূল্যে পাওয়া যায়।',
         divisionContacts: 'বিভাগীয় হাব যোগাযোগ',
+        noProductsFound: 'কোন পণ্য পাওয়া যায়নি',
+        catVegetables: 'সবজি', catFruit: 'ফল', catDairy: 'দুগ্ধজাত', catPoultry: 'পোল্ট্রি', catCrops: 'শস্য', catFish: 'মাছ',
+        divDhaka: 'ঢাকা', divChattogram: 'চট্টগ্রাম', divRajshahi: 'রাজশাহী', divKhulna: 'খুলনা', divBarishal: 'বরিশাল', divSylhet: 'সিলেট', divRangpur: 'রংপুর', divMymensingh: 'ময়মনসিংহ',
+        unit_kg: 'কেজি', unit_liters: 'লিটার', unit_hali: 'হালি'
     }
 };
 
@@ -259,12 +440,15 @@ function showSection(sectionId) {
 function renderAbout() {
     const list = document.getElementById('divisionContactsList');
     if (list) {
-        list.innerHTML = Object.keys(hubData).map(div => `
-            <div class="payment-item" style="text-align:left; cursor:default;">
-                <strong>${div}</strong><br>
-                <small>📞 +880 17${Math.floor(10000000 + Math.random() * 90000000)}</small>
-            </div>
-        `).join('');
+        list.innerHTML = Object.keys(hubData).map(div => {
+            const translatedDiv = translations[currentLang][`div${div}`] || div;
+            return `
+                <div class="payment-item" style="text-align:left; cursor:default;">
+                    <strong>${translatedDiv}</strong><br>
+                    <small>📞 +880 17${Math.floor(10000000 + Math.random() * 90000000)}</small>
+                </div>
+            `;
+        }).join('');
     }
 }
 
@@ -275,7 +459,7 @@ function renderHome() {
             <div class="cat-card reveal" onclick="window.renderProductsByCat('${c.name}'); window.showSection('listing')">
                 <img src="${c.image}" alt="${c.name}">
                 <div class="cat-info">
-                    <h3>${c.icon} ${c.name}</h3>
+                    <h3>${c.icon} ${translations[currentLang]['cat' + c.name]}</h3>
                     <span>${c.count}+ ${translations[currentLang].navProducts}</span>
                 </div>
             </div>
@@ -297,19 +481,23 @@ function createProductCard(p) {
     const card = document.createElement('div');
     card.className = 'product-card reveal';
     
+    const name = currentLang === 'bn' ? p.name_bn : p.name;
+    const desc = currentLang === 'bn' ? p.desc_bn : p.description;
+    const catDisplay = translations[currentLang]['cat' + p.category] || p.category;
+    
     card.innerHTML = `
         <div class="product-img-container">
-            <img src="${p.image}" class="product-img" alt="${p.name}">
-            <div class="card-badge">${p.category}</div>
+            <img src="${p.image}" class="product-img" alt="${name}">
+            <div class="card-badge">${catDisplay}</div>
             <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
             <div class="quick-add" onclick="event.stopPropagation(); window.showSuppliersFromCard('${p.id}')">${translations[currentLang].addToCart}</div>
         </div>
         <div class="product-info">
-            <h3>${p.name}</h3>
+            <h3>${name}</h3>
             <div class="rating">
                 ${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(p.rating))} ${p.rating} ★
             </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">${p.description}</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">${desc}</p>
         </div>
     `;
     
@@ -337,7 +525,7 @@ function setupFilters() {
         catContainer.innerHTML = categoryData.filter(cd => categories.includes(cd.name)).map(c => `
             <div class="pill-item ${filters.categories.includes(c.name) ? 'active' : ''}" 
                  onclick="window.toggleFilter('categories', '${c.name}', this)">
-                <span>${c.icon}</span> ${c.name}
+                <span>${c.icon}</span> ${translations[currentLang]['cat' + c.name]}
             </div>
         `).join('');
     }
@@ -442,16 +630,18 @@ function showSuppliers(product) {
     }
 
     const detailTitle = document.getElementById('productDetailTitle');
-    if (detailTitle) detailTitle.innerText = `${translations[currentLang].suppliersFor} ${product.name}`;
+    const name = currentLang === 'bn' ? product.name_bn : product.name;
+    if (detailTitle) detailTitle.innerText = `${translations[currentLang].suppliersFor} ${name}`;
     
     const list = document.getElementById('supplierList');
     if (list) {
         list.innerHTML = product.suppliers.map(s => {
             const price = product.noGrade ? s.price : calculatePrice(s.price, currentGrade);
+            const regionName = translations[currentLang][`div${s.region}`] || s.region;
             return `
                 <div class="checkout-card fade-in" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${s.region}</p>
+                        <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${regionName}</p>
                     </div>
                     <div style="text-align:right;">
                         <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
@@ -479,17 +669,21 @@ function addToCart(pStr, sStr, price) {
     const s = JSON.parse(decodeURIComponent(sStr));
     const increment = p.unit === 'hali' ? 1 : 0.5;
     
-    const existing = cart.find(item => item.productId === p.id && item.region === s.region && (p.noGrade ? true : item.grade === currentGrade));
+    const name = currentLang === 'bn' ? p.name_bn : p.name;
+    const region = translations[currentLang][`div${s.region}`] || s.region;
+
+    const existing = cart.find(item => item.productId === p.id && item.regionInternal === s.region && (p.noGrade ? true : item.grade === currentGrade));
     if (existing) {
         existing.qty += increment;
     } else {
         cart.push({ 
             productId: p.id, 
-            productName: p.name, 
+            productName: name, 
             image: p.image,
             price: price, 
             qty: increment, 
-            region: s.region,
+            region: region,
+            regionInternal: s.region,
             grade: p.noGrade ? '' : currentGrade,
             unit: p.unit
         });
@@ -521,6 +715,12 @@ function updateCartUI() {
     cart.forEach((item, index) => {
         subtotal += item.price * item.qty;
         totalQty += item.qty;
+        
+        const p = products.find(prod => prod.id === item.productId);
+        const name = currentLang === 'bn' ? p.name_bn : p.name;
+        const region = translations[currentLang][`div${item.regionInternal}`] || item.regionInternal;
+        const unitDisplay = translations[currentLang][`unit_${p.unit}`] || p.unit;
+
         const div = document.createElement('div');
         div.style.marginBottom = '25px';
         div.style.display = 'flex';
@@ -530,14 +730,14 @@ function updateCartUI() {
             <div style="flex: 1;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
                     <div>
-                        <strong style="display:block;">${item.productName} ${item.grade ? '('+item.grade+')' : ''}</strong>
-                        <span style="font-size:0.75rem; color:var(--text-muted);">📍 ${item.region}</span>
+                        <strong style="display:block;">${name} ${item.grade ? '('+item.grade+')' : ''}</strong>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">📍 ${region}</span>
                     </div>
                     <span style="font-weight: 700;">৳ ${Math.round(item.price * item.qty)}</span>
                 </div>
                 <div class="qty-controls">
                     <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
-                    <span style="font-weight:700;">${item.qty}${item.unit}</span>
+                    <span style="font-weight:700;">${item.qty}${unitDisplay}</span>
                     <button class="qty-btn" onclick="window.updateQty(${index}, 1)">+</button>
                 </div>
             </div>
@@ -564,18 +764,25 @@ function updateCartUI() {
 function renderCheckout() {
     const summaryItems = document.getElementById('checkoutSummaryItems');
     if (!summaryItems) return;
-    summaryItems.innerHTML = cart.map(item => `
-        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-            <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
-            <div style="flex: 1;">
-                <div style="display: flex; justify-content: space-between;">
-                    <strong>${item.productName} ${item.grade ? '('+item.grade+')' : ''}</strong>
-                    <span>৳ ${Math.round(item.price * item.qty)}</span>
+    summaryItems.innerHTML = cart.map(item => {
+        const p = products.find(prod => prod.id === item.productId);
+        const name = currentLang === 'bn' ? p.name_bn : p.name;
+        const region = translations[currentLang][`div${item.regionInternal}`] || item.regionInternal;
+        const unitDisplay = translations[currentLang][`unit_${p.unit}`] || p.unit;
+
+        return `
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
+                <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <strong>${name} ${item.grade ? '('+item.grade+')' : ''}</strong>
+                        <span>৳ ${Math.round(item.price * item.qty)}</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}${unitDisplay} from ${region}</p>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}${item.unit} from ${item.region}</p>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
     
     let subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
     let totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
@@ -604,7 +811,10 @@ function populateDivisions() {
     const selector = document.getElementById('hubDivision');
     if (selector) {
         selector.innerHTML = `<option value="">${translations[currentLang].chooseDivision}</option>` + 
-            divisions.map(div => `<option value="${div}">${div}</option>`).join('');
+            divisions.map(div => {
+                const translatedDiv = translations[currentLang][`div${div}`] || div;
+                return `<option value="${div}">${translatedDiv}</option>`;
+            }).join('');
     }
 }
 
@@ -616,6 +826,7 @@ function updateHubs() {
             selector.innerHTML = `<option value="">${translations[currentLang].chooseDivision}</option>`;
             return;
         }
+        // Hub names are kept in English as they are local brands/spots
         selector.innerHTML = hubData[div].map(hub => `<option value="${hub}">${hub}</option>`).join('');
     }
 }
