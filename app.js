@@ -10,55 +10,55 @@ const products = [
     { 
         id: 'v1', name: 'Cabbage', name_bn: 'বাধাকপি', category: 'Vegetables', 
         description: 'Fresh crisp green cabbage.', desc_bn: 'তাজা এবং কচকচে সবুজ বাধাকপি।',
-        rating: 4.8, image: 'https://images.unsplash.com/photo-1548694054-ca792f6b83f3?w=500', 
+        rating: 4.8, image: 'assets/cabbage.jpg', 
         unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(40, div) })) 
     },
     { 
         id: 'v2a', name: 'Diamond Potato', name_bn: 'ডায়মন্ড আলু', category: 'Vegetables', 
         description: 'Classic versatile white potatoes.', desc_bn: 'সব কাজে ব্যবহারের জন্য উপযোগী সাদা ডায়মন্ড আলু।',
-        rating: 4.5, image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
+        rating: 4.5, image: 'assets/diamond_potato.jpg', 
         unit: 'kg', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `s2a-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
     { 
         id: 'v2b', name: 'Lal Pakri Potato', name_bn: 'লাল পাকরি আলু', category: 'Vegetables', 
         description: 'Traditional native red potatoes.', desc_bn: 'সুস্বাদু ঐতিহ্যবাহী লাল পাকরি আলু।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=500', 
+        rating: 4.7, image: 'assets/lal_pakri_potato.jpg', 
         unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `s2b-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
     { 
-        id: 'v2c', name: 'Cardinal Potato', name_bn: 'কার্ডিনাল আলু', category: 'Vegetables', 
-        description: 'Large sized premium Cardinal potatoes.', desc_bn: 'বড় আকারের প্রিমিয়াম কার্ডিনাল আলু।',
-        rating: 4.6, image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
-        unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s2c-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+        id: 'v2c', name: 'Sweet Potato', name_bn: 'মিষ্টি আলু', category: 'Vegetables', 
+        description: 'Naturally sweet and nutritious sweet potatoes.', desc_bn: 'সুস্বাদু এবং পুষ্টিকর মিষ্টি আলু।',
+        rating: 4.8, image: 'assets/sweet_potato.jpg', 
+        unit: 'kg', marketPrice: 60, suppliers: divisions.map((div, i) => ({ id: `s2c-${i}`, region: div, price: getRegionalPrice(60, div) })) 
     },
     { 
         id: 'v4', name: 'Tomatoes', name_bn: 'টমেটো', category: 'Vegetables', 
         description: 'Vine-ripened red tomatoes.', desc_bn: 'গাছেই পাকা তাজা লাল টমেটো।',
-        rating: 4.6, image: 'https://images.unsplash.com/photo-1561131245-c3577d33d969?w=500', 
+        rating: 4.6, image: 'assets/tomato.jpg', 
         unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) 
     },
     { 
         id: 'v11', name: 'Cauliflower', name_bn: 'ফুলকপি', category: 'Vegetables', 
         description: 'Fresh white winter cauliflower.', desc_bn: 'তাজা সাদা শীতকালীন ফুলকপি।',
-        rating: 4.6, image: 'https://images.unsplash.com/photo-1568584711075-3d021a7c3ec1?w=500', 
+        rating: 4.6, image: 'assets/cauliflower.jpg', 
         unit: 'kg', marketPrice: 80, suppliers: divisions.map((div, i) => ({ id: `v11-${i}`, region: div, price: getRegionalPrice(80, div) })) 
     },
     { 
         id: 'v12', name: 'Okra (Lady Finger)', name_bn: 'ঢেঁড়স', category: 'Vegetables', 
         description: 'Fresh tender green okra.', desc_bn: 'তাজা এবং কচি ঢেঁড়স।',
-        rating: 4.5, image: 'https://images.unsplash.com/photo-1638436898933-1db91c1e6504?w=400', 
+        rating: 4.5, image: 'assets/lady_finger.jpg', 
         unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `v12-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
     { 
         id: 'v13', name: 'Onion', name_bn: 'পেঁয়াজ', category: 'Vegetables', 
         description: 'Pungent and fresh local onions.', desc_bn: 'ঝাঁঝালো এবং তাজা দেশি পেঁয়াজ।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=400', 
+        rating: 4.7, image: 'assets/onion.jpg', 
         unit: 'kg', marketPrice: 80, suppliers: divisions.map((div, i) => ({ id: `v13-${i}`, region: div, price: getRegionalPrice(80, div) })) 
     },
     { 
         id: 'v14', name: 'Radish', name_bn: 'মুলা', category: 'Vegetables', 
         description: 'Crisp white winter radish.', desc_bn: 'তাজা সাদা শীতকালীন মুলা।',
-        rating: 4.4, image: 'https://images.unsplash.com/photo-1582284540020-8acbe03f4924?w=400', 
+        rating: 4.4, image: 'assets/radish.jpg', 
         unit: 'kg', marketPrice: 30, suppliers: divisions.map((div, i) => ({ id: `v14-${i}`, region: div, price: getRegionalPrice(30, div) })) 
     },
 
@@ -157,21 +157,21 @@ const products = [
         id: 'p1', name: 'Chicken Eggs', name_bn: 'মুরগির ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh chicken eggs.', desc_bn: 'দেশি ও খামারের তাজা লাল মুরগির ডিম।',
-        rating: 4.8, image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
+        rating: 4.8, image: 'assets/chicken_egg.jpg', 
         unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `p1-${i}`, region: div, price: getRegionalPrice(55, div) })) 
     },
     { 
         id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh duck eggs.', desc_bn: 'দেশি ও খামারের তাজা হাঁসের ডিম।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=500', 
+        rating: 4.7, image: 'assets/duck_egg.jpg', 
         unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `p2-${i}`, region: div, price: getRegionalPrice(75, div) })) 
     },
     { 
         id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh quail eggs.', desc_bn: 'তাজা ও পুষ্টিকর কোয়েলের ডিম।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=500', 
+        rating: 4.9, image: 'assets/quail_egg.jpg', 
         unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `p3-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
 
@@ -179,25 +179,25 @@ const products = [
     { 
         id: 'c1a', name: 'Miniket Rice', name_bn: 'মিনিকেট চাল', category: 'Crops', 
         description: 'Aromatic long-grain miniket rice.', desc_bn: 'জনপ্রিয় মিনিকেট চকচকে লম্বা দানার চাল।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        rating: 4.7, image: 'assets/miniket_rice.jpg', 
         unit: 'kg', marketPrice: 72, suppliers: divisions.map((div, i) => ({ id: `c1a-${i}`, region: div, price: getRegionalPrice(72, div) })) 
     },
     { 
         id: 'c1b', name: 'Nazirshail Rice', name_bn: 'নাজিরশাইল চাল', category: 'Crops', 
         description: 'Premium quality Nazirshail rice.', desc_bn: 'সেরা মানের সরু নাজিরশাইল চাল।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        rating: 4.9, image: 'assets/nazirshail_rice.jpg', 
         unit: 'kg', marketPrice: 85, suppliers: divisions.map((div, i) => ({ id: `c1b-${i}`, region: div, price: getRegionalPrice(85, div) })) 
     },
     { 
         id: 'c1c', name: 'Chinigura Rice', name_bn: 'চিনিগুঁড়া চাল', category: 'Crops', 
         description: 'Fine aromatic Chinigura rice for Polao.', desc_bn: 'পোলাওয়ের জন্য সুগন্ধি ছোট দানা চিনিগুঁড়া চাল।',
-        rating: 5.0, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        rating: 5.0, image: 'assets/chinigura_rice.jpg', 
         unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `c1c-${i}`, region: div, price: getRegionalPrice(150, div) })) 
     },
     { 
         id: 'c2', name: 'Desi Lentils', name_bn: 'দেশি মসুর ডাল', category: 'Crops', 
         description: 'High protein red lentils (Dal).', desc_bn: 'প্রোটিন সমৃদ্ধ ছোট দানার দেশি মসুর ডাল।',
-        rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=500', 
+        rating: 4.6, image: 'assets/desi_lentils.jpg', 
         unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `c2-${i}`, region: div, price: getRegionalPrice(155, div) })) 
     }
 ];
