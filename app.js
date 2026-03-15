@@ -164,14 +164,14 @@ const products = [
         id: 'p2', name: 'Duck Eggs', name_bn: 'হাঁসের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh duck eggs.', desc_bn: 'দেশি ও খামারের তাজা হাঁসের ডিম।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1587486842777-e43343132039?w=500', 
+        rating: 4.7, image: 'assets/duck_egg.jpg', 
         unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `p2-${i}`, region: div, price: getRegionalPrice(75, div) })) 
     },
     { 
         id: 'p3', name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম', category: 'Poultry', 
         variantLabels: { A: 'Deshi', B: 'Farm' },
         description: 'Native and farm fresh quail eggs.', desc_bn: 'তাজা ও পুষ্টিকর কোয়েলের ডিম।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1599084993091-190c1978794e?w=500', 
+        rating: 4.9, image: 'assets/quail_egg.jpg', 
         unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `p3-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
 
