@@ -362,7 +362,7 @@ nav.scrolled {
 
 .cat-card img {
     width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
     transition: var(--transition);
 }
@@ -429,9 +429,8 @@ nav.scrolled {
 
 .product-img {
     width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
-    mix-blend-mode: multiply; /* Helps blend image with tinted background */
     transition: var(--transition);
 }
 
@@ -798,15 +797,51 @@ input:focus, textarea:focus {
 }
 
 .qty-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid var(--glass-border);
-    background: transparent;
     color: var(--text-main);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
 }
 
+.qty-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.qty-input {
+    width: 50px;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-weight: 700;
+    text-align: center;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.qty-input:focus {
+    outline: none;
+}
+
+/* Remove arrows from number input */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.qty-input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
 /* Footer */
 footer {
     background: var(--footer-bg);

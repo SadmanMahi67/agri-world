@@ -46,19 +46,19 @@ const products = [
     { 
         id: 'v12', name: 'Okra (Lady Finger)', name_bn: 'ঢেঁড়স', category: 'Vegetables', 
         description: 'Fresh tender green okra.', desc_bn: 'তাজা এবং কচি ঢেঁড়স।',
-        rating: 4.5, image: 'https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=500', 
+        rating: 4.5, image: 'https://images.unsplash.com/photo-1638436898933-1db91c1e6504?w=400', 
         unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `v12-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
     { 
         id: 'v13', name: 'Onion', name_bn: 'পেঁয়াজ', category: 'Vegetables', 
         description: 'Pungent and fresh local onions.', desc_bn: 'ঝাঁঝালো এবং তাজা দেশি পেঁয়াজ।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=500', 
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=400', 
         unit: 'kg', marketPrice: 80, suppliers: divisions.map((div, i) => ({ id: `v13-${i}`, region: div, price: getRegionalPrice(80, div) })) 
     },
     { 
         id: 'v14', name: 'Radish', name_bn: 'মুলা', category: 'Vegetables', 
         description: 'Crisp white winter radish.', desc_bn: 'তাজা সাদা শীতকালীন মুলা।',
-        rating: 4.4, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=500', 
+        rating: 4.4, image: 'https://images.unsplash.com/photo-1582284540020-8acbe03f4924?w=400', 
         unit: 'kg', marketPrice: 30, suppliers: divisions.map((div, i) => ({ id: `v14-${i}`, region: div, price: getRegionalPrice(30, div) })) 
     },
 
@@ -66,31 +66,31 @@ const products = [
     { 
         id: 'f2a', name: 'Sagar Banana', name_bn: 'সাগর কলা', category: 'Fruit', 
         description: 'Large and sweet Sagar bananas.', desc_bn: 'পুষ্টিকর এবং সুমিষ্ট সাগর কলা।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', 
         unit: 'hali', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `f2a-${i}`, region: div, price: getRegionalPrice(40, div) })) 
     },
     { 
         id: 'f2b', name: 'Sabri Banana', name_bn: 'সবরি কলা', category: 'Fruit', 
         description: 'Premium creamy Sabri bananas.', desc_bn: 'সেরা মানের সুস্বাদু সবরি কলা।',
-        rating: 4.8, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=400', 
         unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `f2b-${i}`, region: div, price: getRegionalPrice(55, div) })) 
     },
     { 
         id: 'f2c', name: 'Champa Banana', name_bn: 'চাঁপা কলা', category: 'Fruit', 
         description: 'Small but sweet Champa bananas.', desc_bn: 'আকারে ছোট কিন্তু অত্যন্ত মিষ্টি চাঁপা কলা।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400', 
         unit: 'hali', marketPrice: 30, suppliers: divisions.map((div, i) => ({ id: `v2c-${i}`, region: div, price: getRegionalPrice(30, div) })) 
     },
     { 
         id: 'f3a', name: 'Himsagar Mango', name_bn: 'হিমসাগর আম', category: 'Fruit', 
         description: 'The finest Himsagar mangoes.', desc_bn: 'রাজশাহীর বিখ্যাত সুমিষ্ট হিমসাগর আম।',
-        rating: 5.0, image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
+        rating: 5.0, image: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=400', 
         unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `f3a-${i}`, region: div, price: getRegionalPrice(120, div) })) 
     },
     { 
         id: 'f3c', name: 'Amropali Mango', name_bn: 'আম্রপালি আম', category: 'Fruit', 
         description: 'Flavorful and sweet Amropali mangoes.', desc_bn: 'সুস্বাদু ও মিষ্টি বারি-৪ বা আম্রপালি আম।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', 
         unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `v3c-${i}`, region: div, price: getRegionalPrice(130, div) })) 
     },
 
@@ -98,19 +98,19 @@ const products = [
     { 
         id: 'fi1', name: 'Hilsa Fish', name_bn: 'ইলিশ মাছ', category: 'Fish', 
         description: 'Padma Hilsa - The King of Fish.', desc_bn: 'পদ্মার তাজা ইলিশ - মাছের রাজা।',
-        rating: 5.0, image: 'https://images.unsplash.com/photo-1604543519952-12e848f57991?w=500', 
+        rating: 5.0, image: 'https://images.pexels.com/photos/3296434/pexels-photo-3296434.jpeg?w=400', 
         unit: 'kg', marketPrice: 1600, suppliers: divisions.map((div, i) => ({ id: `fi1-${i}`, region: div, price: getRegionalPrice(1600, div) })) 
     },
     { 
         id: 'fi3', name: 'Rohu Fish', name_bn: 'রুই মাছ', category: 'Fish', 
         description: 'Fresh river Rohu fish.', desc_bn: 'নদীর তাজা ও বড় রুই মাছ।',
-        rating: 4.8, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        rating: 4.8, image: 'https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?w=400', 
         unit: 'kg', marketPrice: 450, suppliers: divisions.map((div, i) => ({ id: `fi3-${i}`, region: div, price: getRegionalPrice(450, div) })) 
     },
     { 
         id: 'fi4', name: 'Katla Fish', name_bn: 'কাতলা মাছ', category: 'Fish', 
         description: 'Native freshwater Katla fish.', desc_bn: 'মিষ্টি জলের বড় কাতলা মাছ।',
-        rating: 4.7, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        rating: 4.7, image: 'https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?w=400', 
         unit: 'kg', marketPrice: 420, suppliers: divisions.map((div, i) => ({ id: `fi4-${i}`, region: div, price: getRegionalPrice(420, div) })) 
     },
     { 
@@ -130,7 +130,7 @@ const products = [
     { 
         id: 'm1', name: 'Cow Milk', name_bn: 'গরুর দুধ', category: 'Dairy', noGrade: true, 
         description: 'Pure farm-fresh cow milk.', desc_bn: 'খামারের খাঁটি গরুর দুধ।',
-        rating: 4.9, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400', 
         unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `m1-${i}`, region: div, price: getRegionalPrice(90, div) })) 
     },
     { 
@@ -559,12 +559,7 @@ function createProductCard(p) {
     const desc = currentLang === 'bn' ? p.desc_bn : p.description;
     const catDisplay = translations[currentLang]['cat' + p.category] || p.category;
 
-    // Dynamic Image Fetching
-    let imageSrc = p.image;
-    if (!imageSrc || imageSrc.trim() === '') {
-        const keywords = p.name.toLowerCase().split(' ').join(',');
-        imageSrc = `https://images.unsplash.com/featured/?${keywords},agriculture`;
-    }
+    const imageSrc = p.image;
     
     card.innerHTML = `
         <div class="product-img-container">
@@ -803,6 +798,25 @@ function updateQty(index, delta) {
     const increment = item.unit === 'hali' ? 1 : 0.5;
     item.qty += (delta > 0 ? increment : -increment);
     if (item.qty <= 0) cart.splice(index, 1);
+    else {
+        // Ensure rounding to nearest increment after delta
+        item.qty = Math.round(item.qty / increment) * increment;
+    }
+    updateCartUI();
+}
+
+function handleQtyManual(index, val) {
+    const item = cart[index];
+    const increment = item.unit === 'hali' ? 1 : 0.5;
+    let newQty = parseFloat(val);
+    
+    if (isNaN(newQty) || newQty <= 0) {
+        cart.splice(index, 1);
+    } else {
+        // Round to nearest 0.5 or 1 (depending on unit)
+        newQty = Math.round(newQty / increment) * increment;
+        item.qty = Math.max(increment, newQty); // Ensure at least one unit/increment
+    }
     updateCartUI();
 }
 
@@ -838,7 +852,15 @@ function updateCartUI() {
                 </div>
                 <div class="qty-controls">
                     <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
-                    <span style="font-weight:700;">${item.qty}${unitDisplay}</span>
+                    <div style="display:flex; align-items:center;">
+                        <input type="number" 
+                               class="qty-input" 
+                               value="${item.qty}" 
+                               step="${item.unit === 'hali' ? '1' : '0.5'}"
+                               min="${item.unit === 'hali' ? '1' : '0.5'}"
+                               onchange="window.handleQtyManual(${index}, this.value)">
+                        <span style="font-weight:700; margin-left:5px;">${unitDisplay}</span>
+                    </div>
                     <button class="qty-btn" onclick="window.updateQty(${index}, 1)">+</button>
                 </div>
             </div>
@@ -1006,6 +1028,7 @@ window.toggleFilter = toggleFilter;
 window.updatePriceLabel = updatePriceLabel;
 window.addToCart = addToCart;
 window.updateQty = updateQty;
+window.handleQtyManual = handleQtyManual;
 window.closeSupplierView = closeSupplierView;
 window.renderProductsByCat = renderProductsByCat;
 window.clearFilters = clearFilters;
