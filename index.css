@@ -878,3 +878,36 @@ footer {
 .footer-col h4, .footer-bottom p {
     text-transform: none;
 }
+/* About Us Enhancements */
+.value-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hub-card {
+    transition: var(--transition);
+}
+
+.hub-card:hover {
+    border-color: var(--accent) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.hub-card i {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.hub-card span {
+    letter-spacing: 0.5px;
+}

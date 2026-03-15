@@ -283,7 +283,12 @@ const translations = {
         contactUsBtn: 'Contact Us',
         newsletter: 'Newsletter',
         newsletterDesc: 'Get updates on fresh arrivals and farm stories.',
-        emailPlaceholder: 'Email Address'
+        emailPlaceholder: 'Email Address',
+        wastageTitle: 'Zero-Waste Mission',
+        wastageDesc: 'Serious about sustainability. We optimize every route to minimize agricultural waste.',
+        qualityTitle: 'Pillar of Quality',
+        qualityDesc: 'Consistency you can trust. Rigorous sourcing for every division, every time.',
+        divisionContacts: 'Operational Logistics Network'
     },
     bn: {
         brand: 'এগ্রি<span>বিডি</span>',
@@ -353,7 +358,12 @@ const translations = {
         contactUsBtn: 'যোগাযোগ করুন',
         newsletter: 'নিউজলেটার',
         newsletterDesc: 'নতুন পণ্যের আপডেট এবং খামারের খবর পেতে যোগ দিন।',
-        emailPlaceholder: 'ইমেইল ঠিকানা'
+        emailPlaceholder: 'ইমেইল ঠিকানা',
+        wastageTitle: 'অপচয়রোধী লক্ষ্য',
+        wastageDesc: 'আমরা প্রতিটি ধাপে খাদ্যের অপচয় কমাতে এবং টেকসই কৃষি নিশ্চিত করতে প্রতিশ্রুতিবদ্ধ।',
+        qualityTitle: 'মানের নিশ্চয়তা',
+        qualityDesc: 'প্রতিটি বিভাগে আমরা সরাসরি খামার থেকে সেরা এবং মানসম্পন্ন কৃষি পণ্য সরবরাহ করি।',
+        divisionContacts: 'আঞ্চলিক লজিস্টিক নেটওয়ার্ক'
     }
 };
 
@@ -472,11 +482,23 @@ function renderAbout() {
             const email = `hub.${div.toLowerCase()}@agribd.com`;
             
             return `
-                <div class="checkout-card reveal" style="text-align:left; margin-bottom: 0;">
-                    <h3 style="color:var(--accent); margin-bottom:10px;">${translatedDiv} Hub</h3>
-                    <p style="margin-bottom:5px;"><strong>📞 Mobile:</strong> ${phone} <span style="background:#25D366; color:white; padding:2px 6px; border-radius:4px; font-size:0.7rem; vertical-align:middle;">WhatsApp</span></p>
-                    <p style="margin-bottom:5px;"><strong>☎️ Tel:</strong> ${tel}</p>
-                    <p style="margin-bottom:5px;"><strong>📧 Email:</strong> ${email}</p>
+                <div class="hub-card reveal" style="background:var(--glass-bg); padding:25px; border-radius:12px; border:1px solid var(--glass-border);">
+                    <h3 style="color:var(--accent); margin-bottom:15px; border-bottom:1px solid var(--glass-border); padding-bottom:10px;">${translatedDiv} Hub</h3>
+                    <div style="display:flex; flex-direction:column; gap:12px; font-size:0.9rem;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-phone" style="color:var(--accent); width:15px;"></i>
+                            <span style="white-space:nowrap;">${phone}</span>
+                            <span style="background:#25D366; color:white; padding:2px 6px; border-radius:4px; font-size:0.65rem;">WhatsApp</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-tty" style="color:var(--accent); width:15px;"></i>
+                            <span style="white-space:nowrap;">${tel}</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-envelope" style="color:var(--accent); width:15px;"></i>
+                            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${email}</span>
+                        </div>
+                    </div>
                 </div>
             `;
         }).join('');
