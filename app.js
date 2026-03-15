@@ -1,27 +1,36 @@
 const divisions = ['Dhaka', 'Chattogram', 'Rajshahi', 'Khulna', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'];
 
+const getRegionalPrice = (base, div) => {
+    const variations = { 'Dhaka': 1.1, 'Chattogram': 1.05, 'Rajshahi': 0.9, 'Khulna': 0.95, 'Barishal': 0.92, 'Sylhet': 1.08, 'Rangpur': 0.88, 'Mymensingh': 0.94 };
+    return Math.round(base * (variations[div] || 1));
+};
+
 // Product Data Structure
 const products = [
-    { id: 'v1', name: 'Cabbage', category: 'Vegetables', description: 'Fresh crisp green cabbage.', rating: 4.8, image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div })) },
-    { id: 'v2', name: 'Potatoes', category: 'Vegetables', description: 'Premium quality diamond potatoes.', rating: 4.5, image: 'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400', unit: 'kg', marketPrice: 25, suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div })) },
-    { id: 'v3', name: 'Carrots', category: 'Vegetables', description: 'Sweet orange organic carrots.', rating: 4.7, image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div })) },
-    { id: 'v4', name: 'Tomatoes', category: 'Vegetables', description: 'Vine-ripened red tomatoes.', rating: 4.6, image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400', unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div })) },
-    { id: 'v5', name: 'Spinach', category: 'Vegetables', description: 'Fresh nutritional spinach leaves.', rating: 4.9, image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400', unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div })) },
-    { id: 'v6', name: 'Brinjal', category: 'Vegetables', description: 'Large purple eggplants.', rating: 4.5, image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div })) },
+    { id: 'v1', name: 'Cabbage', category: 'Vegetables', description: 'Fresh crisp green cabbage.', rating: 4.8, image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(70, div) })) },
+    { id: 'v2', name: 'Potatoes', category: 'Vegetables', description: 'Premium quality diamond potatoes.', rating: 4.5, image: 'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400', unit: 'kg', marketPrice: 25, suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div, price: getRegionalPrice(25, div) })) },
+    { id: 'v3', name: 'Carrots', category: 'Vegetables', description: 'Sweet orange organic carrots.', rating: 4.7, image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div, price: getRegionalPrice(150, div) })) },
+    { id: 'v4', name: 'Tomatoes', category: 'Vegetables', description: 'Vine-ripened red tomatoes.', rating: 4.6, image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400', unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) },
+    { id: 'v5', name: 'Spinach', category: 'Vegetables', description: 'Fresh nutritional spinach leaves.', rating: 4.9, image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400', unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div, price: getRegionalPrice(40, div) })) },
+    { id: 'v6', name: 'Brinjal', category: 'Vegetables', description: 'Large purple eggplants.', rating: 4.5, image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400', unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div, price: getRegionalPrice(120, div) })) },
     
-    { id: 'f1', name: 'Apples', category: 'Fruit', description: 'Crisp and sweet gala apples.', rating: 4.8, image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400', unit: 'kg', marketPrice: 280, suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div })) },
-    { id: 'f2', name: 'Banana', category: 'Fruit', description: 'Sweet tropical organic bananas.', rating: 4.4, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', unit: 'kg', marketPrice: 60, suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div })) },
-    { id: 'f3', name: 'Mango', category: 'Fruit', description: 'Famous Rajshahi langra mangoes.', rating: 5.0, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', unit: 'kg', marketPrice: 125, suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div })) },
+    { id: 'f1', name: 'Apples', category: 'Fruit', description: 'Crisp and sweet gala apples.', rating: 4.8, image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400', unit: 'kg', marketPrice: 280, suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div, price: getRegionalPrice(280, div) })) },
+    { id: 'f2', name: 'Banana', category: 'Fruit', description: 'Sweet tropical organic bananas.', rating: 4.4, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400', unit: 'hali', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div, price: getRegionalPrice(40, div) })) },
+    { id: 'f3', name: 'Mango', category: 'Fruit', description: 'Famous Rajshahi langra mangoes.', rating: 5.0, image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400', unit: 'kg', marketPrice: 125, suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div, price: getRegionalPrice(125, div) })) },
     
-    { id: 'm1', name: 'Milk', category: 'Dairy', description: 'Pure farm-fresh cow milk.', rating: 4.9, image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400', unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div })) },
+    { id: 'm1', name: 'Cow Milk', category: 'Dairy', noGrade: true, description: 'Pure farm-fresh cow milk.', rating: 4.9, image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400', unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div, price: getRegionalPrice(90, div) })) },
+    { id: 'm2', name: 'Goat Milk', category: 'Dairy', noGrade: true, description: 'Nutritious goat milk, easy to digest.', rating: 4.7, image: 'https://images.unsplash.com/photo-1528750951163-f014fc9ad3ac?w=400', unit: 'liters', marketPrice: 140, suppliers: divisions.map((div, i) => ({ id: `s10b-${i}`, region: div, price: getRegionalPrice(140, div) })) },
+    { id: 'm3', name: 'Sheep Milk', category: 'Dairy', noGrade: true, description: 'Rare and creamy sheep milk.', rating: 4.6, image: 'https://images.unsplash.com/photo-1517448931760-9bf4414148c5?w=400', unit: 'liters', marketPrice: 220, suppliers: divisions.map((div, i) => ({ id: `s10c-${i}`, region: div, price: getRegionalPrice(220, div) })) },
     
-    { id: 'p1', name: 'Eggs', category: 'Poultry', description: 'Farm fresh organic eggs.', rating: 4.8, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400', unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div })) },
+    { id: 'p1', name: 'Chicken Eggs', category: 'Poultry', noGrade: true, description: 'Farm fresh organic chicken eggs.', rating: 4.8, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400', unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div, price: getRegionalPrice(55, div) })) },
+    { id: 'p2', name: 'Duck Eggs', category: 'Poultry', noGrade: true, description: 'Rich and tasty native duck eggs.', rating: 4.7, image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400', unit: 'hali', marketPrice: 75, suppliers: divisions.map((div, i) => ({ id: `s11b-${i}`, region: div, price: getRegionalPrice(75, div) })) },
+    { id: 'p3', name: 'Quail Eggs', category: 'Poultry', noGrade: true, description: 'Tiny but nutrient-packed quail eggs.', rating: 4.9, image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=400', unit: 'hali', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `s11c-${i}`, region: div, price: getRegionalPrice(35, div) })) },
     
-    { id: 'c1', name: 'Rice', category: 'Crops', description: 'Aromatic long-grain miniket rice.', rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div })) },
-    { id: 'c2', name: 'Lentils', category: 'Crops', description: 'High protein red lentils (Dal).', rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400', unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div })) },
+    { id: 'c1', name: 'Rice', category: 'Crops', description: 'Aromatic long-grain miniket rice.', rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400', unit: 'kg', marketPrice: 70, suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div, price: getRegionalPrice(70, div) })) },
+    { id: 'c2', name: 'Lentils', category: 'Crops', description: 'High protein red lentils (Dal).', rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400', unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div, price: getRegionalPrice(155, div) })) },
     
-    { id: 'fi1', name: 'Hilsa Fish', category: 'Fish', description: 'Padma Hilsa - The King of Fish.', rating: 5.0, image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400', unit: 'kg', marketPrice: 1800, suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div })) },
-    { id: 'fi2', name: 'Prawns', category: 'Fish', description: 'Freshwater giant prawns.', rating: 4.8, image: 'https://images.unsplash.com/photo-1553659971-f01207815844?w=400', unit: 'kg', marketPrice: 950, suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div })) }
+    { id: 'fi1', name: 'Hilsa Fish', category: 'Fish', description: 'Padma Hilsa - The King of Fish.', rating: 5.0, image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400', unit: 'kg', marketPrice: 1800, suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div, price: getRegionalPrice(1800, div) })) },
+    { id: 'fi2', name: 'Prawns', category: 'Fish', description: 'Freshwater giant prawns.', rating: 4.8, image: 'https://images.unsplash.com/photo-1553659971-f01207815844?w=400', unit: 'kg', marketPrice: 950, suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div, price: getRegionalPrice(950, div) })) }
 ];
 
 const categoryData = [
@@ -387,13 +396,14 @@ function applyFilters() {
         const matchesSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
         const matchesCat = filters.categories.length === 0 || filters.categories.includes(p.category);
         const matchesReg = filters.regions.length === 0 || p.suppliers.some(s => filters.regions.includes(s.region));
-        const matchesPrice = p.marketPrice <= filters.maxPrice;
+        const minPrice = Math.min(...p.suppliers.map(s => s.price));
+        const matchesPrice = minPrice <= filters.maxPrice;
         
         return matchesSearch && matchesCat && matchesReg && matchesPrice;
     });
 
-    if (sort === 'price-low') filtered.sort((a, b) => a.marketPrice - b.marketPrice);
-    if (sort === 'price-high') filtered.sort((a, b) => b.marketPrice - a.marketPrice);
+    if (sort === 'price-low') filtered.sort((a, b) => Math.min(...a.suppliers.map(s => s.price)) - Math.min(...b.suppliers.map(s => s.price)));
+    if (sort === 'price-high') filtered.sort((a, b) => Math.max(...b.suppliers.map(s => s.price)) - Math.max(...a.suppliers.map(s => s.price)));
 
     const grid = document.getElementById('productGrid');
     if (grid) {
@@ -420,30 +430,38 @@ function showSuppliers(product) {
     currentProduct = product;
     const grid = document.getElementById('productGrid');
     const view = document.getElementById('supplierView');
+    const gradeToggle = document.querySelector('.grade-toggle');
+    
     if (grid && view) {
         grid.classList.add('hidden');
         view.classList.remove('hidden');
     }
+    
+    if (gradeToggle) {
+        gradeToggle.style.display = product.noGrade ? 'none' : 'flex';
+    }
+
     const detailTitle = document.getElementById('productDetailTitle');
     if (detailTitle) detailTitle.innerText = `${translations[currentLang].suppliersFor} ${product.name}`;
     
-    const price = calculatePrice(product.marketPrice, currentGrade);
-
     const list = document.getElementById('supplierList');
     if (list) {
-        list.innerHTML = product.suppliers.map(s => `
-            <div class="checkout-card fade-in" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${s.region}</p>
+        list.innerHTML = product.suppliers.map(s => {
+            const price = product.noGrade ? s.price : calculatePrice(s.price, currentGrade);
+            return `
+                <div class="checkout-card fade-in" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${s.region}</p>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
+                        <button class="cta-primary" style="padding: 10px 20px; margin-top: 10px;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}', ${price})">
+                            <i class="fa-solid fa-plus"></i> ${translations[currentLang].addToCart}
+                        </button>
+                    </div>
                 </div>
-                <div style="text-align:right;">
-                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
-                    <button class="cta-primary" style="padding: 10px 20px; margin-top: 10px;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}', ${price})">
-                        <i class="fa-solid fa-plus"></i> ${translations[currentLang].addToCart}
-                    </button>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 }
 
@@ -459,19 +477,20 @@ function closeSupplierView() {
 function addToCart(pStr, sStr, price) {
     const p = JSON.parse(decodeURIComponent(pStr));
     const s = JSON.parse(decodeURIComponent(sStr));
+    const increment = p.unit === 'hali' ? 1 : 0.5;
     
-    const existing = cart.find(item => item.productId === p.id && item.region === s.region && item.grade === currentGrade);
+    const existing = cart.find(item => item.productId === p.id && item.region === s.region && (p.noGrade ? true : item.grade === currentGrade));
     if (existing) {
-        existing.qty += 0.5;
+        existing.qty += increment;
     } else {
         cart.push({ 
             productId: p.id, 
             productName: p.name, 
             image: p.image,
             price: price, 
-            qty: 0.5, 
+            qty: increment, 
             region: s.region,
-            grade: currentGrade,
+            grade: p.noGrade ? '' : currentGrade,
             unit: p.unit
         });
     }
@@ -485,8 +504,10 @@ function addToCart(pStr, sStr, price) {
 }
 
 function updateQty(index, delta) {
-    cart[index].qty += delta;
-    if (cart[index].qty <= 0) cart.splice(index, 1);
+    const item = cart[index];
+    const increment = item.unit === 'hali' ? 1 : 0.5;
+    item.qty += (delta > 0 ? increment : -increment);
+    if (item.qty <= 0) cart.splice(index, 1);
     updateCartUI();
 }
 
@@ -509,15 +530,15 @@ function updateCartUI() {
             <div style="flex: 1;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
                     <div>
-                        <strong style="display:block;">${item.productName} (${item.grade})</strong>
+                        <strong style="display:block;">${item.productName} ${item.grade ? '('+item.grade+')' : ''}</strong>
                         <span style="font-size:0.75rem; color:var(--text-muted);">📍 ${item.region}</span>
                     </div>
                     <span style="font-weight: 700;">৳ ${Math.round(item.price * item.qty)}</span>
                 </div>
                 <div class="qty-controls">
-                    <button class="qty-btn" onclick="window.updateQty(${index}, -0.5)">-</button>
+                    <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
                     <span style="font-weight:700;">${item.qty}${item.unit}</span>
-                    <button class="qty-btn" onclick="window.updateQty(${index}, 0.5)">+</button>
+                    <button class="qty-btn" onclick="window.updateQty(${index}, 1)">+</button>
                 </div>
             </div>
         `;
@@ -548,7 +569,7 @@ function renderCheckout() {
             <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
             <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between;">
-                    <strong>${item.productName} (${item.grade})</strong>
+                    <strong>${item.productName} ${item.grade ? '('+item.grade+')' : ''}</strong>
                     <span>৳ ${Math.round(item.price * item.qty)}</span>
                 </div>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">${item.qty}${item.unit} from ${item.region}</p>
