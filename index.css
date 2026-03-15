@@ -1,14 +1,22 @@
 :root {
-    --primary: #1a3a2a; /* Deep Forest Green */
-    --accent: #4ade80;  /* Vibrant Green */
+    --primary: #2d5a44; /* Deep Forest Green */
+    --accent: #16a34a;  /* Vibrant Green */
+    --accent-rgb: 22, 163, 74;
     --bg-dark: #111111; /* Dark Charcoal */
     --bg-card: rgba(26, 58, 42, 0.4);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --text-main: #f0f0f0;
     --text-muted: #aaaaaa;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 20px 40px rgba(0,0,0,0.5);
+    --footer-bg: #0a0a0a;
+    --footer-text: var(--text-muted);
+    --footer-heading: var(--text-main);
+    --drawer-bg: #151515;
+    --hero-overlay: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+    --hero-text: #f0f0f0;
+    --hero-p: #cccccc;
 }
 
 [data-theme="light"] {
@@ -21,6 +29,13 @@
     --primary: #2d5a44;
     --accent: #16a34a;
     --shadow: 0 10px 40px rgba(45, 90, 68, 0.05); /* Subtle green-tinted shadow */
+    --footer-bg: #1a2e24; /* Deep, rich forest green */
+    --footer-text: rgba(255, 255, 255, 0.7);
+    --footer-heading: #ffffff;
+    --drawer-bg: #fdfcf8;
+    --hero-overlay: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4));
+    --hero-text: #ffffff; /* Hero usually has background image, keep text light for contrast */
+    --hero-p: #eeeeee;
 }
 
 * {
@@ -202,7 +217,7 @@ nav.scrolled {
     border-radius: 30px;
     margin-top: 20px;
     overflow: hidden;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000');
+    background: var(--hero-overlay), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000');
     background-size: cover;
     background-position: center;
 }
@@ -229,6 +244,7 @@ nav.scrolled {
     font-size: 4.5rem;
     line-height: 1.1;
     margin-bottom: 25px;
+    color: var(--hero-text);
 }
 
 .hero h1 span {
@@ -238,7 +254,7 @@ nav.scrolled {
 
 .hero p {
     font-size: 1.2rem;
-    color: #ccc;
+    color: var(--hero-p);
     margin-bottom: 40px;
     max-width: 600px;
 }
@@ -628,11 +644,11 @@ input[type=range]::-webkit-slider-thumb {
 
 input, textarea, select {
     width: 100%;
-    background: rgba(255,255,255,0.05);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     padding: 14px 20px;
     border-radius: 12px;
-    color: white;
+    color: var(--text-main);
     font-family: inherit;
     transition: var(--transition);
 }
@@ -681,14 +697,15 @@ input:focus, textarea:focus {
     right: -450px;
     width: 450px;
     height: 100%;
-    background: #151515;
+    background: var(--drawer-bg);
     z-index: 2000;
     transition: var(--transition);
     padding: 40px;
     border-left: 1px solid var(--glass-border);
-    box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+    box-shadow: -20px 0 50px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
+    color: var(--text-main);
 }
 
 .cart-overlay.open {
@@ -716,6 +733,11 @@ input:focus, textarea:focus {
     display: flex;
     align-items: center;
     gap: 15px;
+    color: var(--text-main);
+}
+
+.qty-controls span {
+    color: var(--text-main);
 }
 
 .qty-btn {
@@ -724,16 +746,29 @@ input:focus, textarea:focus {
     border-radius: 50%;
     border: 1px solid var(--glass-border);
     background: transparent;
-    color: white;
+    color: var(--text-main);
     cursor: pointer;
 }
 
 /* Footer */
 footer {
-    background: #0a0a0a;
+    background: var(--footer-bg);
     padding: 80px 0 40px;
     margin-top: 100px;
     border-top: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+footer .logo {
+    color: var(--footer-heading) !important;
+}
+
+footer .footer-col h4 {
+    color: var(--footer-heading);
+}
+
+footer p, footer .footer-links a {
+    color: var(--footer-text) !important;
 }
 
 .footer-grid {
@@ -777,7 +812,8 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.05); /* Subtler in dark mode */
+    border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -786,9 +822,14 @@ footer {
     transition: var(--transition);
 }
 
+footer .social-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+}
+
 .social-icon:hover {
     background: var(--accent);
-    color: #000;
+    color: #000 !important;
 }
 
 .newsletter-form {
