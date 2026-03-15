@@ -400,6 +400,10 @@ let revealObserver;
 
 // Initialize
 function init() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
     setupScrollEffects();
     updateLanguage();
     renderHome();
@@ -908,6 +912,24 @@ function toggleLanguage() {
     populateDivisions();
 }
 
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+    const icon = document.getElementById('themeIcon');
+    if (icon) {
+        icon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+}
+
 function setupEventListeners() {
     const openCart = document.getElementById('openCart');
     const closeCart = document.getElementById('closeCart');
@@ -950,5 +972,6 @@ window.setGrade = setGrade;
 window.toggleDeliveryMethod = toggleDeliveryMethod;
 window.updateHubs = updateHubs;
 window.setPayment = setPayment;
+window.toggleTheme = toggleTheme;
 
 init();

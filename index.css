@@ -8,12 +8,26 @@
     --text-main: #f0f0f0;
     --text-muted: #aaaaaa;
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+[data-theme="light"] {
+    --bg-dark: #f8fafc; /* Slate-50 */
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --text-main: #0f172a; /* Slate-900 */
+    --text-muted: #64748b; /* Slate-500 */
+    --primary: #2d5a44;
+    --accent: #16a34a;
+    --shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 body {
@@ -93,11 +107,12 @@ nav {
 }
 
 nav.scrolled {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--glass-bg);
     backdrop-filter: blur(15px);
     padding: 15px 40px;
     margin: 0 -40px;
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow);
 }
 
 .logo {
@@ -906,7 +921,7 @@ footer {
 }
 
 .service-item {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     padding: 20px;
     border-radius: 12px;
