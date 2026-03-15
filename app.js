@@ -146,7 +146,7 @@ const products = [
         category: 'Poultry', noGrade: true, 
         description: 'Rich and tasty native duck eggs.', desc_bn: 'দেশি হাঁসের বড় ও সুস্বাদু ডিম।',
         rating: 4.7, 
-        image: 'https://images.unsplash.com/photo-1582722872445-44ad5c7894de?w=500', 
+        image: 'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=500', 
         unit: 'hali', marketPrice: 75, 
         suppliers: divisions.map((div, i) => ({ id: `s11b-${i}`, region: div, price: getRegionalPrice(75, div) })) 
     },
@@ -274,7 +274,16 @@ const translations = {
         noProductsFound: 'No Products Found',
         catVegetables: 'Vegetables', catFruit: 'Fruit', catDairy: 'Dairy', catPoultry: 'Poultry', catCrops: 'Crops', catFish: 'Fish',
         divDhaka: 'Dhaka', divChattogram: 'Chattogram', divRajshahi: 'Rajshahi', divKhulna: 'Khulna', divBarishal: 'Barishal', divSylhet: 'Sylhet', divRangpur: 'Rangpur', divMymensingh: 'Mymensingh',
-        unit_kg: 'kg', unit_liters: 'liters', unit_hali: 'hali'
+        unit_kg: 'kg', unit_liters: 'liters', unit_hali: 'hali',
+        expressDeliveryText: 'Express Delivery',
+        support: 'Support',
+        faq: 'FAQ',
+        shippingPolicy: 'Shipping Policy',
+        refundPolicy: 'Refund Policy',
+        contactUsBtn: 'Contact Us',
+        newsletter: 'Newsletter',
+        newsletterDesc: 'Get updates on fresh arrivals and farm stories.',
+        emailPlaceholder: 'Email Address'
     },
     bn: {
         brand: 'এগ্রি<span>বিডি</span>',
@@ -335,7 +344,16 @@ const translations = {
         noProductsFound: 'কোন পণ্য পাওয়া যায়নি',
         catVegetables: 'সবজি', catFruit: 'ফল', catDairy: 'দুগ্ধজাত', catPoultry: 'পোল্ট্রি', catCrops: 'শস্য', catFish: 'মাছ',
         divDhaka: 'ঢাকা', divChattogram: 'চট্টগ্রাম', divRajshahi: 'রাজশাহী', divKhulna: 'খুলনা', divBarishal: 'বরিশাল', divSylhet: 'সিলেট', divRangpur: 'রংপুর', divMymensingh: 'ময়মনসিংহ',
-        unit_kg: 'কেজি', unit_liters: 'লিটার', unit_hali: 'হালি'
+        unit_kg: 'কেজি', unit_liters: 'লিটার', unit_hali: 'হালি',
+        expressDeliveryText: 'এক্সপ্রেস ডেলিভারি',
+        support: 'সহায়তা',
+        faq: 'সাধারণ জিজ্ঞাসা',
+        shippingPolicy: 'শিপিং পলিসি',
+        refundPolicy: 'রিফান্ড পলিসি',
+        contactUsBtn: 'যোগাযোগ করুন',
+        newsletter: 'নিউজলেটার',
+        newsletterDesc: 'নতুন পণ্যের আপডেট এবং খামারের খবর পেতে যোগ দিন।',
+        emailPlaceholder: 'ইমেইল ঠিকানা'
     }
 };
 
@@ -442,10 +460,16 @@ function renderAbout() {
     if (list) {
         list.innerHTML = Object.keys(hubData).map(div => {
             const translatedDiv = translations[currentLang][`div${div}`] || div;
+            const phone = `+880 17${Math.floor(10000000 + Math.random() * 90000000)}`;
+            const tel = `+880 2 ${Math.floor(1000000 + Math.random() * 9000000)}`;
+            const email = `hub.${div.toLowerCase()}@agribd.com`;
+            
             return `
-                <div class="payment-item" style="text-align:left; cursor:default;">
-                    <strong>${translatedDiv}</strong><br>
-                    <small>📞 +880 17${Math.floor(10000000 + Math.random() * 90000000)}</small>
+                <div class="checkout-card reveal" style="text-align:left; margin-bottom: 0;">
+                    <h3 style="color:var(--accent); margin-bottom:10px;">${translatedDiv} Hub</h3>
+                    <p style="margin-bottom:5px;"><strong>📞 Mobile:</strong> ${phone} <span style="background:#25D366; color:white; padding:2px 6px; border-radius:4px; font-size:0.7rem; vertical-align:middle;">WhatsApp</span></p>
+                    <p style="margin-bottom:5px;"><strong>☎️ Tel:</strong> ${tel}</p>
+                    <p style="margin-bottom:5px;"><strong>📧 Email:</strong> ${email}</p>
                 </div>
             `;
         }).join('');
