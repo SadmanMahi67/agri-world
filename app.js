@@ -5,212 +5,171 @@ const getRegionalPrice = (base, div) => {
     return Math.round(base * (variations[div] || 1));
 };
 
-// Product Data Structure
 const products = [
+    // Vegetables
     { 
-        id: 'v1', 
-        name: 'Cabbage', name_bn: 'বাধাকপি', 
-        category: 'Vegetables', 
+        id: 'v1', name: 'Cabbage', name_bn: 'বাধাকপি', category: 'Vegetables', 
         description: 'Fresh crisp green cabbage.', desc_bn: 'তাজা এবং কচকচে সবুজ বাধাকপি।',
-        rating: 4.8, 
-        image: 'https://images.unsplash.com/photo-1548694054-ca792f6b83f3?w=500', 
-        unit: 'kg', marketPrice: 70, 
-        suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(70, div) })) 
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1548694054-ca792f6b83f3?w=500', 
+        unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s1-${i}`, region: div, price: getRegionalPrice(40, div) })) 
     },
     { 
-        id: 'v2', 
-        name: 'Potatoes', name_bn: 'আলু',
-        category: 'Vegetables', 
-        description: 'Premium quality diamond potatoes.', desc_bn: 'সেরা মানের ডায়মন্ড আলু।',
-        rating: 4.5, 
-        image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
-        unit: 'kg', marketPrice: 25, 
-        suppliers: divisions.map((div, i) => ({ id: `s2-${i}`, region: div, price: getRegionalPrice(25, div) })) 
+        id: 'v2a', name: 'Diamond Potato', name_bn: 'ডায়মন্ড আলু', category: 'Vegetables', 
+        description: 'Classic versatile white potatoes.', desc_bn: 'সব কাজে ব্যবহারের জন্য উপযোগী সাদা ডায়মন্ড আলু।',
+        rating: 4.5, image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
+        unit: 'kg', marketPrice: 35, suppliers: divisions.map((div, i) => ({ id: `s2a-${i}`, region: div, price: getRegionalPrice(35, div) })) 
     },
     { 
-        id: 'v3', 
-        name: 'Carrots', name_bn: 'গাজর',
-        category: 'Vegetables', 
-        description: 'Sweet orange organic carrots.', desc_bn: 'মিষ্টি এবং পুষ্টিকর অর্গানিক গাজর।',
-        rating: 4.7, 
-        image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500', 
-        unit: 'kg', marketPrice: 150, 
-        suppliers: divisions.map((div, i) => ({ id: `s3-${i}`, region: div, price: getRegionalPrice(150, div) })) 
+        id: 'v2b', name: 'Lal Pakri Potato', name_bn: 'লাল পাকরি আলু', category: 'Vegetables', 
+        description: 'Traditional native red potatoes.', desc_bn: 'সুস্বাদু ঐতিহ্যবাহী লাল পাকরি আলু।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=500', 
+        unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `s2b-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
     { 
-        id: 'v4', 
-        name: 'Tomatoes', name_bn: 'টমেটো',
-        category: 'Vegetables', 
+        id: 'v2c', name: 'Cardinal Potato', name_bn: 'কার্ডিনাল আলু', category: 'Vegetables', 
+        description: 'Large sized premium Cardinal potatoes.', desc_bn: 'বড় আকারের প্রিমিয়াম কার্ডিনাল আলু।',
+        rating: 4.6, image: 'https://images.unsplash.com/photo-1518977676601-b53f02bad177?w=500', 
+        unit: 'kg', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `s2c-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+    },
+    { 
+        id: 'v4', name: 'Tomatoes', name_bn: 'টমেটো', category: 'Vegetables', 
         description: 'Vine-ripened red tomatoes.', desc_bn: 'গাছেই পাকা তাজা লাল টমেটো।',
-        rating: 4.6, 
-        image: 'https://images.unsplash.com/photo-1561131245-c3577d33d969?w=500', 
-        unit: 'kg', marketPrice: 130, 
-        suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) 
+        rating: 4.6, image: 'https://images.unsplash.com/photo-1561131245-c3577d33d969?w=500', 
+        unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `s4-${i}`, region: div, price: getRegionalPrice(130, div) })) 
     },
     { 
-        id: 'v5', 
-        name: 'Spinach', name_bn: 'পালং শাক',
-        category: 'Vegetables', 
-        description: 'Fresh nutritional spinach leaves.', desc_bn: 'পুষ্টিগুণে ভরপুর টাটকা পালং শাক।',
-        rating: 4.9, 
-        image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500', 
-        unit: 'kg', marketPrice: 40, 
-        suppliers: divisions.map((div, i) => ({ id: `s5-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+        id: 'v11', name: 'Cauliflower', name_bn: 'ফুলকপি', category: 'Vegetables', 
+        description: 'Fresh white winter cauliflower.', desc_bn: 'তাজা সাদা শীতকালীন ফুলকপি।',
+        rating: 4.6, image: 'https://images.unsplash.com/photo-1568584711075-3d021a7c3ec1?w=500', 
+        unit: 'kg', marketPrice: 80, suppliers: divisions.map((div, i) => ({ id: `v11-${i}`, region: div, price: getRegionalPrice(80, div) })) 
     },
     { 
-        id: 'v6', 
-        name: 'Brinjal', name_bn: 'বেগুন',
-        category: 'Vegetables', 
-        description: 'Large purple eggplants.', desc_bn: 'বড় এবং তাজা লম্বু বেগুন।',
-        rating: 4.5, 
-        image: 'https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=500', 
-        unit: 'kg', marketPrice: 120, 
-        suppliers: divisions.map((div, i) => ({ id: `s6-${i}`, region: div, price: getRegionalPrice(120, div) })) 
+        id: 'v12', name: 'Okra (Lady Finger)', name_bn: 'ঢেঁড়স', category: 'Vegetables', 
+        description: 'Fresh tender green okra.', desc_bn: 'তাজা এবং কচি ঢেঁড়স।',
+        rating: 4.5, image: 'https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=500', 
+        unit: 'kg', marketPrice: 50, suppliers: divisions.map((div, i) => ({ id: `v12-${i}`, region: div, price: getRegionalPrice(50, div) })) 
     },
-    
+
+    // Fruits
     { 
-        id: 'f1', 
-        name: 'Apples', name_bn: 'আপেল',
-        category: 'Fruit', 
-        description: 'Crisp and sweet gala apples.', desc_bn: 'মিষ্টি এবং মচমচে গালা আপেল।',
-        rating: 4.8, 
-        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?w=500', 
-        unit: 'kg', marketPrice: 280, 
-        suppliers: divisions.map((div, i) => ({ id: `s7-${i}`, region: div, price: getRegionalPrice(280, div) })) 
+        id: 'f2a', name: 'Sagar Banana', name_bn: 'সাগর কলা', category: 'Fruit', 
+        description: 'Large and sweet Sagar bananas.', desc_bn: 'পুষ্টিকর এবং সুমিষ্ট সাগর কলা।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        unit: 'hali', marketPrice: 40, suppliers: divisions.map((div, i) => ({ id: `f2a-${i}`, region: div, price: getRegionalPrice(40, div) })) 
     },
     { 
-        id: 'f2', 
-        name: 'Banana', name_bn: 'কলা',
-        category: 'Fruit', 
-        description: 'Sweet tropical organic bananas.', desc_bn: 'মিষ্টি ও পুষ্টিকর খাস কলা।',
-        rating: 4.4, 
-        image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
-        unit: 'hali', marketPrice: 40, 
-        suppliers: divisions.map((div, i) => ({ id: `s8-${i}`, region: div, price: getRegionalPrice(40, div) })) 
+        id: 'f2b', name: 'Sabri Banana', name_bn: 'সবরি কলা', category: 'Fruit', 
+        description: 'Premium creamy Sabri bananas.', desc_bn: 'সেরা মানের সুস্বাদু সবরি কলা।',
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `f2b-${i}`, region: div, price: getRegionalPrice(55, div) })) 
     },
     { 
-        id: 'f3', 
-        name: 'Mango', name_bn: 'আম',
-        category: 'Fruit', 
-        description: 'Famous Rajshahi langra mangoes.', desc_bn: 'রাজশাহীর বিখ্যাত সুমিষ্ট লেংড়া আম।',
-        rating: 5.0, 
-        image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
-        unit: 'kg', marketPrice: 125, 
-        suppliers: divisions.map((div, i) => ({ id: `s9-${i}`, region: div, price: getRegionalPrice(125, div) })) 
-    },
-    
-    { 
-        id: 'm1', 
-        name: 'Cow Milk', name_bn: 'গরুর দুধ',
-        category: 'Dairy', noGrade: true, 
-        description: 'Pure farm-fresh cow milk.', desc_bn: 'খামারের খাঁটি গরুর দুধ।',
-        rating: 4.9, 
-        image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
-        unit: 'liters', marketPrice: 90, 
-        suppliers: divisions.map((div, i) => ({ id: `s10-${i}`, region: div, price: getRegionalPrice(90, div) })) 
+        id: 'f2c', name: 'Champa Banana', name_bn: 'চাঁপা কলা', category: 'Fruit', 
+        description: 'Small but sweet Champa bananas.', desc_bn: 'আকারে ছোট কিন্তু অত্যন্ত মিষ্টি চাঁপা কলা।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=500', 
+        unit: 'hali', marketPrice: 30, suppliers: divisions.map((div, i) => ({ id: `v2c-${i}`, region: div, price: getRegionalPrice(30, div) })) 
     },
     { 
-        id: 'm2', 
-        name: 'Goat Milk', name_bn: 'ছাগলের দুধ',
-        category: 'Dairy', noGrade: true, 
-        description: 'Nutritious goat milk, easy to digest.', desc_bn: 'পুষ্টিকর এবং সহজে হজমযোগ্য ছাগলের দুধ।',
-        rating: 4.7, 
-        image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=500', 
-        unit: 'liters', marketPrice: 140, 
-        suppliers: divisions.map((div, i) => ({ id: `s10b-${i}`, region: div, price: getRegionalPrice(140, div) })) 
+        id: 'f3a', name: 'Himsagar Mango', name_bn: 'হিমসাগর আম', category: 'Fruit', 
+        description: 'The finest Himsagar mangoes.', desc_bn: 'রাজশাহীর বিখ্যাত সুমিষ্ট হিমসাগর আম।',
+        rating: 5.0, image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
+        unit: 'kg', marketPrice: 120, suppliers: divisions.map((div, i) => ({ id: `f3a-${i}`, region: div, price: getRegionalPrice(120, div) })) 
     },
     { 
-        id: 'm3', 
-        name: 'Sheep Milk', name_bn: 'ভেড়ার দুধ',
-        category: 'Dairy', noGrade: true, 
-        description: 'Rare and creamy sheep milk.', desc_bn: 'বিরল এবং অত্যন্ত ননীযুক্ত ভেড়ার দুধ।',
-        rating: 4.6, 
-        image: 'https://images.unsplash.com/photo-1444858291040-58f756a3bcd6?w=500', 
-        unit: 'liters', marketPrice: 220, 
-        suppliers: divisions.map((div, i) => ({ id: `s10c-${i}`, region: div, price: getRegionalPrice(220, div) })) 
+        id: 'f3c', name: 'Amropali Mango', name_bn: 'আম্রপালি আম', category: 'Fruit', 
+        description: 'Flavorful and sweet Amropali mangoes.', desc_bn: 'সুস্বাদু ও মিষ্টি বারি-৪ বা আম্রপালি আম।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1553181230-c020d586d98c?w=500', 
+        unit: 'kg', marketPrice: 130, suppliers: divisions.map((div, i) => ({ id: `v3c-${i}`, region: div, price: getRegionalPrice(130, div) })) 
     },
-    
+
+    // Fish
     { 
-        id: 'p1', 
-        name: 'Chicken Eggs', name_bn: 'মুরগির ডিম',
-        category: 'Poultry', noGrade: true, 
-        description: 'Farm fresh organic chicken eggs.', desc_bn: 'খামারের অর্গানিক টাটকা মুরগির ডিম।',
-        rating: 4.8, 
-        image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
-        unit: 'hali', marketPrice: 55, 
-        suppliers: divisions.map((div, i) => ({ id: `s11-${i}`, region: div, price: getRegionalPrice(55, div) })) 
-    },
-    { 
-        id: 'p2', 
-        name: 'Duck Eggs', name_bn: 'হাঁসের ডিম',
-        category: 'Poultry', noGrade: true, 
-        description: 'Rich and tasty native duck eggs.', desc_bn: 'দেশি হাঁসের বড় ও সুস্বাদু ডিম।',
-        rating: 4.7, 
-        image: 'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=500', 
-        unit: 'hali', marketPrice: 75, 
-        suppliers: divisions.map((div, i) => ({ id: `s11b-${i}`, region: div, price: getRegionalPrice(75, div) })) 
-    },
-    { 
-        id: 'p3', 
-        name: 'Quail Eggs', name_bn: 'কোয়েলের ডিম',
-        category: 'Poultry', noGrade: true, 
-        description: 'Tiny but nutrient-packed quail eggs.', desc_bn: 'ছোট কিন্তু পুষ্টিগুণে অত্যন্ত সমৃদ্ধ কোয়েলের ডিম।',
-        rating: 4.9, 
-        image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7295?w=500', 
-        unit: 'hali', marketPrice: 35, 
-        suppliers: divisions.map((div, i) => ({ id: `s11c-${i}`, region: div, price: getRegionalPrice(35, div) })) 
-    },
-    
-    { 
-        id: 'c1', 
-        name: 'Rice', name_bn: 'চাল',
-        category: 'Crops', 
-        description: 'Aromatic long-grain miniket rice.', desc_bn: 'মিনিকেট লম্বা দানার সুগন্ধি চাল।',
-        rating: 4.7, 
-        image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
-        unit: 'kg', marketPrice: 70, 
-        suppliers: divisions.map((div, i) => ({ id: `s12-${i}`, region: div, price: getRegionalPrice(70, div) })) 
-    },
-    { 
-        id: 'c2', 
-        name: 'Lentils', name_bn: 'মসুর ডাল',
-        category: 'Crops', 
-        description: 'High protein red lentils (Dal).', desc_bn: 'উচ্চ প্রোটিন সমৃদ্ধ দেশি মসুর ডাল।',
-        rating: 4.6, 
-        image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=500', 
-        unit: 'kg', marketPrice: 155, 
-        suppliers: divisions.map((div, i) => ({ id: `s13-${i}`, region: div, price: getRegionalPrice(155, div) })) 
-    },
-    
-    { 
-        id: 'fi1', 
-        name: 'Hilsa Fish', name_bn: 'ইলিশ মাছ',
-        category: 'Fish', 
+        id: 'fi1', name: 'Hilsa Fish', name_bn: 'ইলিশ মাছ', category: 'Fish', 
         description: 'Padma Hilsa - The King of Fish.', desc_bn: 'পদ্মার তাজা ইলিশ - মাছের রাজা।',
-        rating: 5.0, 
-        image: 'https://images.unsplash.com/photo-1604543519952-12e848f57991?w=500', 
-        unit: 'kg', marketPrice: 1800, 
-        suppliers: divisions.map((div, i) => ({ id: `s14-${i}`, region: div, price: getRegionalPrice(1800, div) })) 
+        rating: 5.0, image: 'https://images.unsplash.com/photo-1604543519952-12e848f57991?w=500', 
+        unit: 'kg', marketPrice: 1600, suppliers: divisions.map((div, i) => ({ id: `fi1-${i}`, region: div, price: getRegionalPrice(1600, div) })) 
     },
     { 
-        id: 'fi2', 
-        name: 'Prawns', name_bn: 'চিংড়ি',
-        category: 'Fish', 
-        description: 'Freshwater giant prawns.', desc_bn: 'মিষ্টি জলের বড় গলদা চিংড়ি।',
-        rating: 4.8, 
-        image: 'https://images.unsplash.com/photo-1559742811-824289541bad?w=500', 
-        unit: 'kg', marketPrice: 950, 
-        suppliers: divisions.map((div, i) => ({ id: `s15-${i}`, region: div, price: getRegionalPrice(950, div) })) 
+        id: 'fi3', name: 'Rohu Fish', name_bn: 'রুই মাছ', category: 'Fish', 
+        description: 'Fresh river Rohu fish.', desc_bn: 'নদীর তাজা ও বড় রুই মাছ।',
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        unit: 'kg', marketPrice: 450, suppliers: divisions.map((div, i) => ({ id: `fi3-${i}`, region: div, price: getRegionalPrice(450, div) })) 
+    },
+    { 
+        id: 'fi4', name: 'Katla Fish', name_bn: 'কাতলা মাছ', category: 'Fish', 
+        description: 'Native freshwater Katla fish.', desc_bn: 'মিষ্টি জলের বড় কাতলা মাছ।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        unit: 'kg', marketPrice: 420, suppliers: divisions.map((div, i) => ({ id: `fi4-${i}`, region: div, price: getRegionalPrice(420, div) })) 
+    },
+    { 
+        id: 'fi5', name: 'Boal Fish', name_bn: 'বোয়াল মাছ', category: 'Fish', 
+        description: 'Freshwater Boal fish.', desc_bn: 'নদীর জ্যান্ত এবং বড় বোয়াল মাছ।',
+        rating: 4.6, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=500', 
+        unit: 'kg', marketPrice: 850, suppliers: divisions.map((div, i) => ({ id: `fi5-${i}`, region: div, price: getRegionalPrice(850, div) })) 
+    },
+    { 
+        id: 'fi8', name: 'Koi Fish', name_bn: 'কৈ মাছ', category: 'Fish', 
+        description: 'Native nutritious Koi fish.', desc_bn: 'দেশি পুষ্টিকর জ্যান্ত কৈ মাছ।',
+        rating: 4.5, image: 'https://images.unsplash.com/photo-1544521404-585145800ca0?w=500', 
+        unit: 'kg', marketPrice: 550, suppliers: divisions.map((div, i) => ({ id: `fi8-${i}`, region: div, price: getRegionalPrice(550, div) })) 
+    },
+
+    // Dairy
+    { 
+        id: 'm1', name: 'Cow Milk', name_bn: 'গরুর দুধ', category: 'Dairy', noGrade: true, 
+        description: 'Pure farm-fresh cow milk.', desc_bn: 'খামারের খাঁটি গরুর দুধ।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=500', 
+        unit: 'liters', marketPrice: 90, suppliers: divisions.map((div, i) => ({ id: `m1-${i}`, region: div, price: getRegionalPrice(90, div) })) 
+    },
+
+    // Poultry
+    { 
+        id: 'p1', name: 'Chicken Eggs', name_bn: 'মুরগির ডিম', category: 'Poultry', noGrade: true, 
+        description: 'Farm fresh organic chicken eggs.', desc_bn: 'খামারের তাজা লাল মুরগির ডিম।',
+        rating: 4.8, image: 'https://images.unsplash.com/photo-1516746157575-bb1848324ee7?w=500', 
+        unit: 'hali', marketPrice: 55, suppliers: divisions.map((div, i) => ({ id: `p1-${i}`, region: div, price: getRegionalPrice(55, div) })) 
+    },
+
+    // Crops
+    { 
+        id: 'c1a', name: 'Miniket Rice', name_bn: 'মিনিকেট চাল', category: 'Crops', 
+        description: 'Aromatic long-grain miniket rice.', desc_bn: 'জনপ্রিয় মিনিকেট চকচকে লম্বা দানার চাল।',
+        rating: 4.7, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        unit: 'kg', marketPrice: 72, suppliers: divisions.map((div, i) => ({ id: `c1a-${i}`, region: div, price: getRegionalPrice(72, div) })) 
+    },
+    { 
+        id: 'c1b', name: 'Nazirshail Rice', name_bn: 'নাজিরশাইল চাল', category: 'Crops', 
+        description: 'Premium quality Nazirshail rice.', desc_bn: 'সেরা মানের সরু নাজিরশাইল চাল।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        unit: 'kg', marketPrice: 85, suppliers: divisions.map((div, i) => ({ id: `c1b-${i}`, region: div, price: getRegionalPrice(85, div) })) 
+    },
+    { 
+        id: 'c1c', name: 'Chinigura Rice', name_bn: 'চিনিগুঁড়া চাল', category: 'Crops', 
+        description: 'Fine aromatic Chinigura rice for Polao.', desc_bn: 'পোলাওয়ের জন্য সুগন্ধি ছোট দানা চিনিগুঁড়া চাল।',
+        rating: 5.0, image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500', 
+        unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `c1c-${i}`, region: div, price: getRegionalPrice(150, div) })) 
+    },
+    { 
+        id: 'c2', name: 'Desi Lentils', name_bn: 'দেশি মসুর ডাল', category: 'Crops', 
+        description: 'High protein red lentils (Dal).', desc_bn: 'প্রোটিন সমৃদ্ধ ছোট দানার দেশি মসুর ডাল।',
+        rating: 4.6, image: 'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=500', 
+        unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `c2-${i}`, region: div, price: getRegionalPrice(155, div) })) 
+    },
+    { 
+        id: 'c3', name: 'Mustard Oil', name_bn: 'সরিষার তেল', category: 'Crops', noGrade: true,
+        description: 'Pure cold-pressed mustard oil.', desc_bn: 'কাঠের ঘানিতে ভাঙানো খাঁটি সরিষার তেল।',
+        rating: 4.9, image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500', 
+        unit: 'liters', marketPrice: 220, suppliers: divisions.map((div, i) => ({ id: `c3-${i}`, region: div, price: getRegionalPrice(220, div) })) 
     }
 ];
 
 const categoryData = [
-    { name: 'Vegetables', icon: '🥦', count: 120, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=400' },
-    { name: 'Fruit', icon: '🍎', count: 85, image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400' },
-    { name: 'Dairy', icon: '🥛', count: 40, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=400' },
-    { name: 'Poultry', icon: '🥚', count: 35, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400' },
-    { name: 'Crops', icon: '🌾', count: 60, image: 'https://images.unsplash.com/photo-1500313830540-7b6650a74fd0?w=400' },
-    { name: 'Fish', icon: '🐟', count: 25, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=400' }
+    { name: 'Vegetables', icon: '🥦', count: 450, image: 'https://images.unsplash.com/photo-1597362868479-35a62e7db485?w=400' },
+    { name: 'Fruit', icon: '🍎', count: 320, image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400' },
+    { name: 'Dairy', icon: '🥛', count: 120, image: 'https://images.unsplash.com/photo-1550583724-125581f77833?w=400' },
+    { name: 'Poultry', icon: '🥚', count: 110, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400' },
+    { name: 'Crops', icon: '🌾', count: 260, image: 'https://images.unsplash.com/photo-1500313830540-7b6650a74fd0?w=400' },
+    { name: 'Fish', icon: '🐟', count: 180, image: 'https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=400' }
 ];
 
 // Localization
