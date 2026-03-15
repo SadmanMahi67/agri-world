@@ -284,11 +284,18 @@ const translations = {
         newsletter: 'Newsletter',
         newsletterDesc: 'Get updates on fresh arrivals and farm stories.',
         emailPlaceholder: 'Email Address',
-        wastageTitle: 'Zero-Waste Mission',
-        wastageDesc: 'Serious about sustainability. We optimize every route to minimize agricultural waste.',
-        qualityTitle: 'Pillar of Quality',
-        qualityDesc: 'Consistency you can trust. Rigorous sourcing for every division, every time.',
-        divisionContacts: 'Operational Logistics Network'
+        wastageTitle: 'Helping Reduce Wastage',
+        wastageDesc: 'We’re on a mission to minimize food waste by streamlining how fresh produce travels from farm to your table.',
+        qualityTitle: 'Consistency You Can Count On',
+        qualityDesc: 'We ensure high-quality agricultural products reach you with the same premium standard, every single time.',
+        divisionContacts: 'Regional Logistics Network',
+        ourServices: 'Our Services',
+        serviceWholesale: 'Local & Regional Wholesale',
+        serviceCatering: 'Catering Services',
+        serviceRetail: 'Retail Store Supply',
+        serviceHotels: 'Hotel Partnerships',
+        serviceContracts: 'Long-term Supply Contracts',
+        serviceJuice: 'Juice Stall Solutions'
     },
     bn: {
         brand: 'এগ্রি<span>বিডি</span>',
@@ -359,11 +366,18 @@ const translations = {
         newsletter: 'নিউজলেটার',
         newsletterDesc: 'নতুন পণ্যের আপডেট এবং খামারের খবর পেতে যোগ দিন।',
         emailPlaceholder: 'ইমেইল ঠিকানা',
-        wastageTitle: 'অপচয়রোধী লক্ষ্য',
-        wastageDesc: 'আমরা প্রতিটি ধাপে খাদ্যের অপচয় কমাতে এবং টেকসই কৃষি নিশ্চিত করতে প্রতিশ্রুতিবদ্ধ।',
-        qualityTitle: 'মানের নিশ্চয়তা',
-        qualityDesc: 'প্রতিটি বিভাগে আমরা সরাসরি খামার থেকে সেরা এবং মানসম্পন্ন কৃষি পণ্য সরবরাহ করি।',
-        divisionContacts: 'আঞ্চলিক লজিস্টিক নেটওয়ার্ক'
+        wastageTitle: 'অপচয় কমাতে আমাদের পদক্ষেপ',
+        wastageDesc: 'খামার থেকে সরাসরি আপনার টেবিলে পণ্য পৌঁছে দিয়ে আমরা খাদ্যের অপচয় নূন্যতম পর্যায়ে রাখতে কাজ করি।',
+        qualityTitle: 'সবসময় সেরা মান',
+        qualityDesc: 'প্রতিটি বিভাগে আমরা সরাসরি খামার থেকে সেরা এবং মানসম্পন্ন কৃষি পণ্য সরবরাহ নিশ্চিত করি।',
+        divisionContacts: 'আঞ্চলিক লজিস্টিক নেটওয়ার্ক',
+        ourServices: 'আমাদের সেবাসমূহ',
+        serviceWholesale: 'স্থানীয় ও আঞ্চলিক পাইকারি সরবরাহ',
+        serviceCatering: 'ক্যাটারিং সার্ভিস',
+        serviceRetail: 'রিটেইল স্টোর সাপ্লাই',
+        serviceHotels: 'হোটেল পার্টনারশিপ',
+        serviceContracts: 'দীর্ঘমেয়াদী সরবরাহ চুক্তি',
+        serviceJuice: 'জুস স্টল সলিউশন'
     }
 };
 
@@ -688,20 +702,19 @@ function showSuppliers(product) {
     
     const list = document.getElementById('supplierList');
     if (list) {
+        list.className = 'supplier-grid';
         list.innerHTML = product.suppliers.map(s => {
             const price = product.noGrade ? s.price : calculatePrice(s.price, currentGrade);
             const regionName = translations[currentLang][`div${s.region}`] || s.region;
             return `
-                <div class="checkout-card fade-in" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-                    <div>
+                <div class="checkout-card fade-in" style="margin-bottom: 0px; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
                         <p style="color:var(--text); font-weight:700; font-size: 1.1rem;">📍 ${regionName}</p>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
                     </div>
-                    <div style="text-align:right;">
-                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">৳ ${price}<span style="font-size: 0.8rem; font-weight: 400;">/${product.unit}</span></div>
-                        <button class="cta-primary" style="padding: 10px 20px; margin-top: 10px;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}', ${price})">
-                            <i class="fa-solid fa-plus"></i> ${translations[currentLang].addToCart}
-                        </button>
-                    </div>
+                    <button class="cta-primary" style="padding: 12px 20px; width: 100%;" onclick="window.addToCart('${encodeURIComponent(JSON.stringify(product))}', '${encodeURIComponent(JSON.stringify(s))}', ${price})">
+                        <i class="fa-solid fa-plus"></i> ${translations[currentLang].addToCart}
+                    </button>
                 </div>
             `;
         }).join('');

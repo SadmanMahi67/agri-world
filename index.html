@@ -154,21 +154,33 @@
                     <p style="font-size: 1.2rem; margin-bottom: 20px;" data-t="aboutLead">AgriBD is dedicated to bridging the gap between local farmers...</p>
                     <p style="color: var(--text-muted); margin-bottom: 40px;" data-t="aboutBody">Our mission is to empower farmers...</p>
                     
-                    <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                    <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
                         <div class="value-card reveal">
-                            <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"><i class="fa-solid fa-leaf"></i></div>
-                            <h3 data-t="wastageTitle" style="margin-bottom: 10px;">Zero Wastage</h3>
-                            <p data-t="wastageDesc" style="color: var(--text-muted);">We are committed to reducing food waste by optimizing farm-to-table logistics.</p>
+                            <i class="fa-solid fa-seedling" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                            <h3 data-t="wastageTitle">Helping Reduce Wastage</h3>
+                            <p data-t="wastageDesc" style="color: var(--text-muted); font-size: 0.95rem;">We’re on a mission to minimize food waste by streamlining how fresh produce travels from farm to your table.</p>
                         </div>
-                        <div class="value-card reveal">
-                            <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"><i class="fa-solid fa-shield-check"></i></div>
-                            <h3 data-t="qualityTitle" style="margin-bottom: 10px;">Quality Assurance</h3>
-                            <p data-t="qualityDesc" style="color: var(--text-muted);">Every product undergoes rigorous checks to ensure consistent and premium quality.</p>
+                        <div class="value-card reveal" style="border-color: rgba(var(--accent-rgb), 0.3);">
+                            <i class="fa-solid fa-award" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                            <h3 data-t="qualityTitle">Consistency You Can Count On</h3>
+                            <p data-t="qualityDesc" style="color: var(--text-muted); font-size: 0.95rem;">We ensure high-quality agricultural products reach you with the same premium standard, every single time.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-container reveal" style="margin-bottom: 60px; padding: 0;">
+                        <h2 class="section-title" data-t="ourServices" style="margin-bottom: 30px;">Our Services</h2>
+                        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div class="service-item"><i class="fa-solid fa-truck-ramp-box"></i> <span data-t="serviceWholesale">Local & Regional Wholesale</span></div>
+                            <div class="service-item"><i class="fa-solid fa-utensils"></i> <span data-t="serviceCatering">Catering Services</span></div>
+                            <div class="service-item"><i class="fa-solid fa-shop"></i> <span data-t="serviceRetail">Retail Store Supply</span></div>
+                            <div class="service-item"><i class="fa-solid fa-hotel"></i> <span data-t="serviceHotels">Hotel Partnerships</span></div>
+                            <div class="service-item"><i class="fa-solid fa-file-contract"></i> <span data-t="serviceContracts">Long-term Supply Contracts</span></div>
+                            <div class="service-item"><i class="fa-solid fa-glass-citrus"></i> <span data-t="serviceJuice">Juice Stall Solutions</span></div>
                         </div>
                     </div>
 
                     <h2 data-t="divisionContacts" style="margin-bottom: 30px; font-family: 'Playfair Display';">Regional Logistics Network</h2>
-                    <div id="divisionContactsList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div id="divisionContactsList" class="hubs-grid">
                         <!-- Injected via JS -->
                     </div>
                 </div>
