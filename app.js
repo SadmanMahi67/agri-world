@@ -558,10 +558,20 @@ function createProductCard(p) {
     const name = currentLang === 'bn' ? p.name_bn : p.name;
     const desc = currentLang === 'bn' ? p.desc_bn : p.description;
     const catDisplay = translations[currentLang]['cat' + p.category] || p.category;
+
+    // Dynamic Image Fetching
+    let imageSrc = p.image;
+    if (!imageSrc || imageSrc.trim() === '') {
+        const keywords = p.name.toLowerCase().split(' ').join(',');
+        imageSrc = `https://images.unsplash.com/featured/?${keywords},agriculture`;
+    }
     
     card.innerHTML = `
         <div class="product-img-container">
-            <img src="${p.image}" class="product-img" alt="${name}">
+            <img src="${imageSrc}" 
+                 class="product-img" 
+                 alt="${name}"
+                 onerror="this.onerror=null; this.classList.add('img-error');">
             <div class="card-badge badge-${catClass}">${catDisplay}</div>
             <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
             <div class="quick-add" onclick="event.stopPropagation(); window.showSuppliersFromCard('${p.id}')">${translations[currentLang].addToCart}</div>
