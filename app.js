@@ -410,6 +410,12 @@ function setupScrollEffects() {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
+function refreshRevealObserver() {
+    if (revealObserver) {
+        document.querySelectorAll('.reveal:not(.active)').forEach(el => revealObserver.observe(el));
+    }
+}
+
 function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
     document.getElementById('langDisplay').innerText = currentLang === 'en' ? 'BN' : 'EN';
@@ -453,6 +459,7 @@ function showSection(sectionId) {
         renderAbout();
     }
     updateLanguage();
+    refreshRevealObserver();
 }
 
 function renderAbout() {
