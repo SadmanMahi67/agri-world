@@ -440,7 +440,7 @@ nav.scrolled {
 [data-theme="light"] .cat-vegetables .product-img-container { background-color: #FEF3C7; }
 [data-theme="light"] .cat-dairy .product-img-container { background-color: #DBEAFE; }
 [data-theme="light"] .cat-poultry .product-img-container { background-color: #FEE2E2; }
-[data-theme="light"] .cat-crops .product-img-container { background-color: #F3E8FF; }
+[data-theme="light"] .cat-rice .product-img-container { background-color: #F3E8FF; }
 
 /* Dark mode fallbacks */
 [data-theme="dark"] .cat-fruit .product-img-container { background-color: #1a2e24; }
@@ -475,7 +475,7 @@ nav.scrolled {
 [data-theme="light"] .badge-vegetables { background-color: #FEF3C7; color: #92400E; }
 [data-theme="light"] .badge-dairy { background-color: #DBEAFE; color: #1E40AF; }
 [data-theme="light"] .badge-poultry { background-color: #FEE2E2; color: #991B1B; }
-[data-theme="light"] .badge-crops { background-color: #F3E8FF; color: #6B21A8; }
+[data-theme="light"] .badge-rice { background-color: #F3E8FF; color: #6B21A8; }
 
 .wishlist-btn {
     position: absolute;

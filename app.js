@@ -177,25 +177,25 @@ const products = [
 
     // Crops
     { 
-        id: 'c1a', name: 'Miniket Rice', name_bn: 'মিনিকেট চাল', category: 'Crops', 
+        id: 'c1a', name: 'Miniket Rice', name_bn: 'মিনিকেট চাল', category: 'Rice', 
         description: 'Aromatic long-grain miniket rice.', desc_bn: 'জনপ্রিয় মিনিকেট চকচকে লম্বা দানার চাল।',
         rating: 4.7, image: 'assets/miniket_rice.jpg', 
         unit: 'kg', marketPrice: 72, suppliers: divisions.map((div, i) => ({ id: `c1a-${i}`, region: div, price: getRegionalPrice(72, div) })) 
     },
     { 
-        id: 'c1b', name: 'Nazirshail Rice', name_bn: 'নাজিরশাইল চাল', category: 'Crops', 
+        id: 'c1b', name: 'Nazirshail Rice', name_bn: 'নাজিরশাইল চাল', category: 'Rice', 
         description: 'Premium quality Nazirshail rice.', desc_bn: 'সেরা মানের সরু নাজিরশাইল চাল।',
         rating: 4.9, image: 'assets/nazirshail_rice.jpg', 
         unit: 'kg', marketPrice: 85, suppliers: divisions.map((div, i) => ({ id: `c1b-${i}`, region: div, price: getRegionalPrice(85, div) })) 
     },
     { 
-        id: 'c1c', name: 'Chinigura Rice', name_bn: 'চিনিগুঁড়া চাল', category: 'Crops', 
+        id: 'c1c', name: 'Chinigura Rice', name_bn: 'চিনিগুঁড়া চাল', category: 'Rice', 
         description: 'Fine aromatic Chinigura rice for Polao.', desc_bn: 'পোলাওয়ের জন্য সুগন্ধি ছোট দানা চিনিগুঁড়া চাল।',
         rating: 5.0, image: 'assets/chinigura_rice.jpg', 
         unit: 'kg', marketPrice: 150, suppliers: divisions.map((div, i) => ({ id: `c1c-${i}`, region: div, price: getRegionalPrice(150, div) })) 
     },
     { 
-        id: 'c2', name: 'Desi Lentils', name_bn: 'দেশি মসুর ডাল', category: 'Crops', 
+        id: 'c2', name: 'Desi Lentils', name_bn: 'দেশি মসুর ডাল', category: 'Vegetables', 
         description: 'High protein red lentils (Dal).', desc_bn: 'প্রোটিন সমৃদ্ধ ছোট দানার দেশি মসুর ডাল।',
         rating: 4.6, image: 'assets/desi_lentils.jpg', 
         unit: 'kg', marketPrice: 155, suppliers: divisions.map((div, i) => ({ id: `c2-${i}`, region: div, price: getRegionalPrice(155, div) })) 
@@ -207,7 +207,7 @@ const categoryData = [
     { name: 'Fruit', icon: '🍎', count: 320, image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400' },
     { name: 'Dairy', icon: '🥛', count: 120, image: 'assets/cat_dairy.jpg' },
     { name: 'Poultry', icon: '🥚', count: 110, image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400' },
-    { name: 'Crops', icon: '🌾', count: 260, image: 'assets/cat_crops.jpg' },
+    { name: 'Rice', icon: '🍚', count: 260, image: 'assets/cat_rice.jpg' },
     { name: 'Fish', icon: '🐟', count: 180, image: 'assets/cat_fish.jpg' }
 ];
 
@@ -272,7 +272,7 @@ const translations = {
         aboutBody: 'Our mission is to empower farmers by providing direct access to the market while ensuring our customers receive the best produce from all 8 divisions. Grade A products are premium, carefully selected for size and quality. Grade B products are unshaped but equally fresh market-price goods.',
         divisionContacts: 'Division Hub Contacts',
         noProductsFound: 'No Products Found',
-        catVegetables: 'Vegetables', catFruit: 'Fruit', catDairy: 'Dairy', catPoultry: 'Poultry', catCrops: 'Crops', catFish: 'Fish',
+        catVegetables: 'Vegetables', catFruit: 'Fruit', catDairy: 'Dairy', catPoultry: 'Poultry', catRice: 'Rice', catFish: 'Fish',
         divDhaka: 'Dhaka', divChattogram: 'Chattogram', divRajshahi: 'Rajshahi', divKhulna: 'Khulna', divBarishal: 'Barishal', divSylhet: 'Sylhet', divRangpur: 'Rangpur', divMymensingh: 'Mymensingh',
         unit_kg: 'kg', unit_liters: 'liters', unit_hali: 'hali',
         expressDeliveryText: 'Express Delivery',
@@ -356,7 +356,7 @@ const translations = {
         aboutBody: 'আমাদের লক্ষ্য হলো কৃষকদের সরাসরি বাজারে প্রবেশের সুযোগ করে দেওয়া এবং ক্রেতাদের ৮টি বিভাগ থেকে সেরা পণ্য নিশ্চিত করা। গ্রেড এ পণ্যগুলো প্রিমিয়াম মানের। গ্রেড বি পণ্যগুলো দেখতে কিছুটা ভিন্ন হলেও তাজা এবং বাজার মূল্যে পাওয়া যায়।',
         divisionContacts: 'বিভাগীয় হাব যোগাযোগ',
         noProductsFound: 'কোন পণ্য পাওয়া যায়নি',
-        catVegetables: 'সবজি', catFruit: 'ফল', catDairy: 'দুগ্ধজাত', catPoultry: 'পোল্ট্রি', catCrops: 'শস্য', catFish: 'মাছ',
+        catVegetables: 'সবজি', catFruit: 'ফল', catDairy: 'দুগ্ধজাত', catPoultry: 'পোল্ট্রি', catRice: 'চাল', catFish: 'মাছ',
         divDhaka: 'ঢাকা', divChattogram: 'চট্টগ্রাম', divRajshahi: 'রাজশাহী', divKhulna: 'খুলনা', divBarishal: 'বরিশাল', divSylhet: 'সিলেট', divRangpur: 'রংপুর', divMymensingh: 'ময়মনসিংহ',
         unit_kg: 'কেজি', unit_liters: 'লিটার', unit_hali: 'হালি',
         expressDeliveryText: 'এক্সপ্রেস ডেলিভারি',
