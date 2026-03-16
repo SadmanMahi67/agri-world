@@ -550,7 +550,6 @@ function renderHome() {
                 <img src="${c.image}" alt="${c.name}">
                 <div class="cat-info">
                     <h3>${c.icon} ${translations[currentLang]['cat' + c.name]}</h3>
-                    <span>${c.count}+ ${translations[currentLang].navProducts}</span>
                 </div>
             </div>
         `).join('');
